@@ -383,7 +383,7 @@ def choose_GARC(poke_edit_data, target, gameassert):
                 case "Evolution":
                     targetpath = "0/1/4"
         case "Select Game":
-            print("Error: Game not set")
+            logger.error("Game not set")
             return None
 
     folder_path = askopenfilename(title="Select " + target + " GARC, a/" + targetpath)
@@ -702,8 +702,8 @@ def load_names_from_CSV(poke_edit_data, just_wrote=False):
             poke_edit_data.base_species_list = temp_base_species_list.copy()
             poke_edit_data.master_formes_list = temp_master_formes_list.copy()
             poke_edit_data.model_source_list = temp_model_source_list.copy()
-    except Exception as e:
-        print(e)
+    except Exception:
+        logger.exception()
         return poke_edit_data
 
     poke_edit_data.master_list_csv = temp_loaded_csv.copy()
@@ -822,8 +822,7 @@ def write_CSV(poke_edit_data, csv_path=""):
 
     # don't do anything and proceed as usual if none exists, print error message
     except Exception as e:
-        print(
-            e,
+        logger.exception(
             "If this error message is thrown and the CSV has all the Pokemon in it, everything is fine, not sure why this error is happening",
         )  #'Selected CSV file is open in another program. Please close it and try again')
 
