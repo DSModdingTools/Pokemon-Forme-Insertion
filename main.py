@@ -5,7 +5,7 @@ from utilities import *
 import logging
 import logging.config
 import argparse
-
+import coloredlogs
 
 def pre_check(poke_edit_data):
 
@@ -14,7 +14,7 @@ def pre_check(poke_edit_data):
     try:
         base_form_index = int(poke_edit_data.base_species_list.index(base_species_combobox.get().title())) + 1
     except:
-        print('Error at base species,',base_species_combobox.get(),'not found.')
+        logger.error(f"Error at base species '{base_species_combobox.get()}' not found.")
         return
 
     #number of formes to add
@@ -29,7 +29,7 @@ def pre_check(poke_edit_data):
         else:
             model_source_index = int(poke_edit_data.model_source_list.index(model_combobox.get().title()))
     except:
-        print('Error at model,',model_combobox.get(),'not found.')
+        logger.warning('Error at model,',model_combobox.get(),'not found.')
         return
 
     #personal
@@ -223,6 +223,9 @@ else:
 if args.log_server_port:
     t = logging.config.listen(args.log_server_port)
     t.start()
+
+coloredlogs.install()
+
 
 #load/save config
 cfg_load = Button(root, text = 'Load CFG & CSV', command = lambda: [load_game_cfg(poke_edit_data), set_games_checklist(poke_edit_data.game), update_non_model_lists(poke_edit_data), update_model_list_for_box(poke_edit_data)], height = 2, width = 18, pady = 5, padx = 7)
