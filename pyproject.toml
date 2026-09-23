@@ -6,3 +6,8 @@ requires-python = ">=3.13"
 dependencies = [
     "coloredlogs>=15.0.1",
 ]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.8",
+]
