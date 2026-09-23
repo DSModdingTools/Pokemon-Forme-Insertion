@@ -141,7 +141,7 @@ def update_csv_after_changes(
                 ):
                     poke_edit_data.master_list_csv[offset][3] += new_forme_count
             # is model-only
-            except:
+            except:  # ruff: ignore[E722, S110]
                 pass
 
     # now redo the forme index numbers
@@ -151,7 +151,7 @@ def update_csv_after_changes(
             if entry[3] > poke_edit_data.max_species_index:
                 entry[3] = absolute_number
                 absolute_number += 1
-        except:
+        except:  # ruff: ignore[E722, S110]
             pass
 
     return poke_edit_data
@@ -268,7 +268,7 @@ def update_species_list(poke_edit_data, overwrite_from_default=False):
         forme_count = file[0x20]
         try:
             forme_pointer = from_little_bytes_int(file[0x1C:0x1E])
-        except Exception as e:
+        except Exception as e:  # ruff: ignore[BLE001]
             print("Possible error detected", e)
         # if more than 1 AND forme pointer not 0, need to update those names in the array
         if forme_count > 1 and forme_pointer != 0:

@@ -467,7 +467,7 @@ def rebuild_csv(poke_edit_data):
             pass
         # CSV has additions and deletions from game in both directions in either Model or Personal
         elif missing_personal_count < 0 or missing_model_count < 0:
-            logger.warning("Problem detected at row", row_index)
+            logger.warning(f"Problem detected at row {row_index}")
             logger.warning(
                 "CSV has additons AND deletions compared to GARC. Please refresh the CSV and try again."
             )
@@ -565,15 +565,15 @@ def load_names_from_CSV(poke_edit_data, just_wrote=False):
 
                 try:
                     temp_row[2] = int(data_rows[0])
-                except:
+                except:  # ruff: ignore[E722]
                     temp_row[2] = data_rows[0]
                 try:
                     temp_row[3] = int(data_rows[1])
-                except:
+                except:  # ruff: ignore[E722]
                     temp_row[3] = data_rows[1]
                 try:
                     temp_row[4] = int(data_rows[2])
-                except:
+                except:  # ruff: ignore[E722]
                     temp_row[4] = data_rows[2]
 
                 # load the two bytes from the end of the model table thing
@@ -933,7 +933,7 @@ def load_game_cfg(poke_edit_data):
     try:
         with open(game_cfg_path, "r") as cfg:
             cfg_array = [line.rstrip() for line in cfg]
-    except Exception as e:
+    except Exception as e:  # ruff: ignore[BLE001]
         print(e)
         return poke_edit_data
     try:
@@ -958,12 +958,12 @@ def load_game_cfg(poke_edit_data):
 
         try:
             poke_edit_data.max_species_index = int(cfg_array[10])
-        except Exception:
+        except Exception:  # ruff: ignore[BLE001]
             logger.error(
                 f"Specis {cfg_array[10]} in config file could not be interpreted as an integer."
             )
         poke_edit_data.csv_pokemon_list_path = cfg_array[11]
-    except:
+    except:  # ruff: ignore[E722]
         print("Config file missing lines, loaded what was there")
 
     try:
@@ -971,7 +971,7 @@ def load_game_cfg(poke_edit_data):
         for x in range(len(cfg_desc)):
             if cfg_desc[x] != "":
                 print(cfg_desc[x] + ": " + str(cfg_array[x]))
-    except:
+    except:  # ruff: ignore[E722]
         print("Missing lines from config")
     print("\n")
 
@@ -1048,5 +1048,5 @@ def save_game_cfg(poke_edit_data, game_set=""):
             "Names and Model File List CSV saved to "
             + poke_edit_data.csv_pokemon_list_path
         )
-    except Exception as e:
+    except Exception as e:  # ruff: ignore[BLE001]
         print(e, "save game error")

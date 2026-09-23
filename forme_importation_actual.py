@@ -459,7 +459,7 @@ def add_new_forme_execute(
 
     try:
         poke_edit_data = write_CSV(poke_edit_data)
-    except:
+    except:  # ruff: ignore[E722]
         print("Please close your Pokemon Names and Files CSV if it is open")
         poke_edit_data.csv_pokemon_list_path = asksaveasfile(
             title="Select Pokemon Names and Files CSV"

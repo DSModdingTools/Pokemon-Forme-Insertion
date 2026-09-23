@@ -22,7 +22,7 @@ def max_of_column(input_table, column_number) -> int:
         try:
             max_temp = max(max_temp, int(rows[column_number]))
         except ValueError:
-            max_temp = max_temp
+            max_temp = max_temp  # ruff: ignore[PLW0127]
 
     return max_temp
 
@@ -141,6 +141,6 @@ def sort_table_personal_files(to_sort_table):
         elif len(to_sort_table) == 0:
             break
     for x in to_sort_table:
-        order_table.append(x)
+        order_table.append(x)  # ruff: ignore[PERF402]
 
     return order_table

@@ -1,0 +1,1 @@
+# ruff: ignore[N999]

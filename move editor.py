@@ -1,4 +1,4 @@
-from forme_importation_actual import *
+from forme_importation_actual import *  # ruff: ignore[N999]
 from utilities import *
 
 
@@ -36,7 +36,7 @@ def export_levelup(move_edit_data, move_list, pokemon_list):
                         writer_head.writerow(
                             [index, pokemon_list[index], level, move_list[move_index]]
                         )
-                    except Exception as e:
+                    except Exception as e:  # ruff: ignore[BLE001]
                         print(e)
                         if index >= len(pokemon_list):
                             print(
@@ -109,13 +109,13 @@ def import_levelup(move_edit_data, move_list, pokemon_list):
             # get move index
             try:
                 temp_index = move_list.index(line[3].lower())
-            except Exception as e:
+            except Exception as e:  # ruff: ignore[BLE001]
                 print("Error at line", line_number + 1, "Python error:", e)
                 try:
                     print(
                         "Move entered as", line[3], "not found. Please check spelling"
                     )
-                except Exception as e:
+                except Exception as e:  # ruff: ignore[BLE001]
                     print("Error 2:", e)
                     print("Unable to access the entered move name, something is wrong.")
 

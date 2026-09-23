@@ -24,7 +24,7 @@ def pre_check(poke_edit_data):
             )
             + 1
         )
-    except:
+    except:  # ruff: ignore[E722]
         logger.error(
             f"Error at base species '{base_species_combobox.get()}' not found."
         )
@@ -42,8 +42,8 @@ def pre_check(poke_edit_data):
             model_source_index = int(
                 poke_edit_data.model_source_list.index(model_combobox.get().title())
             )
-    except:
-        logger.warning("Error at model,", model_combobox.get(), "not found.")
+    except:  # ruff: ignore[E722]
+        logger.warning("Error at model,", model_combobox.get(), "not found.")  # ruff: ignore[PLE1205]
         return
 
     # personal
@@ -55,7 +55,7 @@ def pre_check(poke_edit_data):
             personal_source_index = int(
                 poke_edit_data.master_formes_list.index(personal_combobox.get().title())
             )
-    except:
+    except:  # ruff: ignore[E722]
         print("Error at personal,", personal_combobox.get(), "not found.")
         return
 
@@ -68,7 +68,7 @@ def pre_check(poke_edit_data):
             levelup_source_index = int(
                 poke_edit_data.master_formes_list.index(levelup_combobox.get().title())
             )
-    except:
+    except:  # ruff: ignore[E722]
         print("Error at levelup,", levelup_combobox.get(), "not found.")
         return
 
@@ -83,7 +83,7 @@ def pre_check(poke_edit_data):
                     evolution_combobox.get().title()
                 )
             )
-    except:
+    except:  # ruff: ignore[E722]
         print("Error at evolution,", evolution_combobox.get(), "not found.")
         return
 
@@ -132,7 +132,7 @@ def pre_check(poke_edit_data):
                 elif continue_bool in {"n", "N"}:
                     return poke_edit_data
                 print("Invalid entry")
-    except Exception as e:
+    except Exception as e:  # ruff: ignore[BLE001]
         print("Error when trying to check the source model bitflags, error:", e)
 
     # print(model_source_index)
