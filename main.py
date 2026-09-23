@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import ttk
 from forme_importation_actual import *
 from utilities import *
+import logging
+import argparse
 
 
 def pre_check(poke_edit_data):
@@ -197,6 +199,20 @@ for x in range(5):
 
 for y in range(7):
     Grid.columnconfigure(root, y, weight = 1)
+
+parser = argparse.ArgumentParser(
+    add_help = True,
+    allow_abbrev = False,
+)
+parser.add_argument("-v",
+                    "--verbose",
+                    help="increase output verbosity",
+                    action="store_true")
+args = parser.parse_args()
+if args.verbose:
+    logging.basicConfig(level=logging.DEBUG)
+else:
+    logging.basicConfig(level=logging.INFO)
 
 
 #load/save config
