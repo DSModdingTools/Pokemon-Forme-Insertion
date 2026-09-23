@@ -3,6 +3,7 @@ from tkinter import ttk
 from forme_importation_actual import *
 from utilities import *
 import logging
+import logging.config
 import argparse
 
 
@@ -208,12 +209,20 @@ parser.add_argument("-v",
                     "--verbose",
                     help="increase output verbosity",
                     action="store_true")
+parser.add_argument("--logserver",
+                    dest="log_server_port",
+                    type=int,
+                    metavar="{1..65535}"
+                    )
 args = parser.parse_args()
 if args.verbose:
     logging.basicConfig(level=logging.DEBUG)
 else:
     logging.basicConfig(level=logging.INFO)
 
+if args.log_server_port:
+    t = logging.config.listen(args.log_server_port)
+    t.start()
 
 #load/save config
 cfg_load = Button(root, text = 'Load CFG & CSV', command = lambda: [load_game_cfg(poke_edit_data), set_games_checklist(poke_edit_data.game), update_non_model_lists(poke_edit_data), update_model_list_for_box(poke_edit_data)], height = 2, width = 18, pady = 5, padx = 7)
@@ -347,5 +356,4 @@ skip_model_checkbutton = Checkbutton(root, text = 'Initialize Model Files', vari
 skip_model_checkbutton.grid(row = 1, column = 1, sticky="nsew")
 skip_model_checkbutton.select()
 
-#print("help")
 root.mainloop()
