@@ -577,10 +577,14 @@ def load_names_from_CSV(poke_edit_data, just_wrote=False):
                     temp_row[4] = data_rows[2]
 
                 # load the two bytes from the end of the model table thing
-                if has_bitflag and has_bitflag and not (
-                    poke_edit_data.modelless_exists
-                    and temp_row[3] == 975
-                    and poke_edit_data.game == "USUM"
+                if (
+                    has_bitflag
+                    and has_bitflag
+                    and not (
+                        poke_edit_data.modelless_exists
+                        and temp_row[3] == 975
+                        and poke_edit_data.game == "USUM"
+                    )
                 ):
                     temp_row[5] = data_rows[14]
                     temp_row[6] = data_rows[15]
