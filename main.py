@@ -1,13 +1,15 @@
-from tkinter import *
-from tkinter import ttk
-from forme_importation_actual import *
-from utilities import *
+import argparse
 import logging
 import logging.config
-import argparse
-import coloredlogs
 import tkinter.scrolledtext
+from tkinter import *
+from tkinter import ttk
+
+import coloredlogs
+
 import infra.TKinterTextHandler
+from forme_importation_actual import *
+from utilities import *
 
 
 def pre_check(poke_edit_data):

@@ -1,9 +1,10 @@
 import csv
-from tkinter.filedialog import asksaveasfilename, askopenfilename
-from utilities import *
-from file_handling import *
-from functools import reduce
 import logging
+from functools import reduce
+from tkinter.filedialog import askopenfilename, asksaveasfilename
+
+from file_handling import *
+from utilities import *
 
 logger = logging.getLogger(__name__)
 
@@ -432,7 +433,7 @@ def rebuild_csv(poke_edit_data):
         )
 
         # if the pointer is 0 but the forme count is >1, then only 1 personal file
-        if temp_personal_pointer_garc in {"0", "", 0, 0x0}:
+        if temp_personal_pointer_garc in {"0", "", 0}:
             temp_personal_instance_garc = 0x1
         else:
             temp_personal_instance_garc = from_little_bytes_int(
@@ -544,7 +545,7 @@ def load_names_from_CSV(poke_edit_data, just_wrote=False):
                     has_bitflag = True
                 else:
                     has_bitflag = False
-            except Exception as e:
+            except Exception:
                 logger.exception(
                     "Error when trying to check for model bitflag in CSV, "
                 )
@@ -576,14 +577,13 @@ def load_names_from_CSV(poke_edit_data, just_wrote=False):
                     temp_row[4] = data_rows[2]
 
                 # load the two bytes from the end of the model table thing
-                if has_bitflag:
-                    if has_bitflag and not (
-                        poke_edit_data.modelless_exists
-                        and temp_row[3] == 975
-                        and poke_edit_data.game == "USUM"
-                    ):
-                        temp_row[5] = data_rows[14]
-                        temp_row[6] = data_rows[15]
+                if has_bitflag and has_bitflag and not (
+                    poke_edit_data.modelless_exists
+                    and temp_row[3] == 975
+                    and poke_edit_data.game == "USUM"
+                ):
+                    temp_row[5] = data_rows[14]
+                    temp_row[6] = data_rows[15]
 
                 temp_loaded_csv.append(temp_row)
 
@@ -821,7 +821,7 @@ def write_CSV(poke_edit_data, csv_path=""):
                         )
 
     # don't do anything and proceed as usual if none exists, print error message
-    except Exception as e:
+    except Exception:
         logger.exception(
             "If this error message is thrown and the CSV has all the Pokemon in it, everything is fine, not sure why this error is happening",
         )  #'Selected CSV file is open in another program. Please close it and try again')
@@ -958,7 +958,7 @@ def load_game_cfg(poke_edit_data):
 
         try:
             poke_edit_data.max_species_index = int(cfg_array[10])
-        except Exception as e:
+        except Exception:
             logger.error(
                 f"Specis {cfg_array[10]} in config file could not be interpreted as an integer."
             )

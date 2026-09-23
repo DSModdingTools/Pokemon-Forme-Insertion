@@ -1,5 +1,5 @@
-import tkinter
 import logging
+import tkinter
 
 
 class TKinterTextHandler(logging.Handler):

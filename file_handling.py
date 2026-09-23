@@ -1,5 +1,5 @@
-from utilities import *
 from my_constants import *
+from utilities import *
 
 
 # updated target Personal file with new Forme Count and First Forme Pointer
@@ -183,7 +183,7 @@ def update_model_list(poke_edit_data):
             temp_name = poke_edit_data.base_species_list[index + 1]
 
         # name each model as <Pokemon species> <number>, the base forme is named <Pokemon> 0 so that (in at least most cases) the model-number lines up with the forme-number (where there are multiple)
-        for distinct_models in range(0, number_of_models):
+        for distinct_models in range(number_of_models):
             model_temp_list.append(temp_name + " " + str(distinct_models))
 
     # append the Egg
@@ -246,7 +246,7 @@ def update_species_list(poke_edit_data, overwrite_from_default=False):
 
     print("Initializing default Formes list")
     # adds (total number of pokemon personal files) - (total number of base species) spots to the end of the array
-    for x in range(0, personal_index_count - poke_edit_data.max_species_index - 1):
+    for x in range(personal_index_count - poke_edit_data.max_species_index - 1):
         poke_edit_data.master_formes_list.append("")
 
     # print(poke_edit_data.max_species_index)
@@ -276,7 +276,7 @@ def update_species_list(poke_edit_data, overwrite_from_default=False):
 
             # print(index, forme_count, forme_pointer)
             # first forme in forme count is the base, need to do 1 less than that. We call each forme <base species name> <alt forme count> (e.g. Mega Blastoise is "Blastoise 1")
-            for x in range(0, forme_count - 1):
+            for x in range(forme_count - 1):
                 # print(index, forme_count, forme_pointer, x)
                 poke_edit_data.master_formes_list[forme_pointer + x] = (
                     poke_edit_data.base_species_list[index] + " " + str(x + 1)

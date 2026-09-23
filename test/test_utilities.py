@@ -1,9 +1,10 @@
 import unittest
+
 from utilities import (
-    max_of_column,
     entire_of_column,
     find_rows_with_column_matching,
     little_endian_chunks,
+    max_of_column,
 )
 
 

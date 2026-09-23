@@ -1,7 +1,8 @@
 from tkinter.filedialog import asksaveasfile
+
+from file_handling import *
 from my_constants import *
 from user_data_handling import *
-from file_handling import *
 
 
 def save_and_refresh_GARCs(poke_edit_data):
@@ -107,7 +108,7 @@ def check_adding_without_models_works(poke_edit_data, base_form_index, new_forme
         poke_edit_data.personal[base_form_index][0x1C:0x1E]
     )
     if temp_pointer != 0:
-        for offset in range(0, explicit_forme_count - 1):
+        for offset in range(explicit_forme_count - 1):
             if temp_pointer == from_little_bytes_int(
                 poke_edit_data.personal[temp_pointer + offset][0x1C:0x1E]
             ):
@@ -371,7 +372,7 @@ def add_new_forme_execute(
 
         # update number of models
         # start from the beginning just in case something erred at another point
-        for index in range(0, poke_edit_data.max_species_index):
+        for index in range(poke_edit_data.max_species_index):
             poke_edit_data.model_header[4 * index : 4 * index + 2] = (
                 from_int_little_bytes(model_count, 2)
             )

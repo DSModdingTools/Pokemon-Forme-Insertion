@@ -20,8 +20,7 @@ def max_of_column(input_table, column_number) -> int:
     max_temp = 0
     for rows in input_table:
         try:
-            if int(rows[column_number]) > max_temp:
-                max_temp = int(rows[column_number])
+            max_temp = max(max_temp, int(rows[column_number]))
         except ValueError:
             max_temp = max_temp
 
