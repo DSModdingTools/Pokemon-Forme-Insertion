@@ -811,8 +811,10 @@ def load_game_cfg(poke_edit_data):
         else:
             poke_edit_data.sorted = False
 
-
-        poke_edit_data.max_species_index = cfg_array[10]
+        try:
+            poke_edit_data.max_species_index = int(cfg_array[10])
+        except Exception as e:
+            logger.error(f'Specis {cfg_array[10]} in config file could not be interpreted as an integer.')
         poke_edit_data.csv_pokemon_list_path = cfg_array[11]
     except:
         print('Config file missing lines, loaded what was there')
