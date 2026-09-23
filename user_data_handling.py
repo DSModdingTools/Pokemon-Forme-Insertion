@@ -160,7 +160,8 @@ def reconstruct_GARC(poke_edit_data, GARC_name):
     temp[pointer:pointer + 2] = temp[FAT0_offset + 0x8:FAT0_offset + 0xA]
 
     pointer += 4
-
+    #FIMB header length (3 high bytes are zero)
+    temp[pointer] = [0x0C]
     #before we write the BFAT blocks, add the FIMB header so we can write those blocks and actual files at once
 
     #this will point at end of file
@@ -173,8 +174,7 @@ def reconstruct_GARC(poke_edit_data, GARC_name):
     
     fimb_pointer  += 4
 
-    #FIMB header length (3 high bytes are zero)
-    temp[pointer] = [0x0C]
+
 
 
     #need to update this with final offset below
