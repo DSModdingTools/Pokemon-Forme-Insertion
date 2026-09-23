@@ -11,3 +11,6 @@ dependencies = [
 dev = [
     "ruff>=0.16.8",
 ]
+
+[tool.setuptools]
+py-modules = []
