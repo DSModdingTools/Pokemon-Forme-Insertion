@@ -6,6 +6,8 @@ import logging
 import logging.config
 import argparse
 import coloredlogs
+import tkinter.scrolledtext
+import infra.TKinterTextHandler
 
 def pre_check(poke_edit_data):
 
@@ -106,7 +108,7 @@ def pre_check(poke_edit_data):
 
 root = Tk()
 root.title('Pokemon Forme Insertion V.' + version)
-root.geometry('1250x200')
+root.geometry('1250x800')
 
 poke_edit_data = Pokedata()
 
@@ -359,4 +361,19 @@ skip_model_checkbutton = Checkbutton(root, text = 'Initialize Model Files', vari
 skip_model_checkbutton.grid(row = 1, column = 1, sticky="nsew")
 skip_model_checkbutton.select()
 
-root.mainloop()
+log_window_title = tkinter.Label(root, text="Log Messages", relief="raised")
+log_window_title.grid(row=4, column = 6)
+
+
+log_window = tkinter.scrolledtext.ScrolledText(root, state='disabled')
+log_window.configure(font='TkFixedFont')
+log_window.grid(row=5, column=6)
+
+text_handler = infra.TKinterTextHandler.TKinterTextHandler(log_window)
+
+logger = logging.getLogger()
+logger.addHandler(text_handler)
+
+if __name__ == "__main__":
+
+    root.mainloop()
