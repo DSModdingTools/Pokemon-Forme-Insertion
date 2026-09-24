@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\Programs\\Pokemon-Forme-Insertion\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programs\\Pokemon-Forme-Insertion\\main.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programs\\Pokemon-Forme-Insertion\\utilities.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:utilities.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programs\\Pokemon-Forme-Insertion\\forme_importation_actual.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:forme_importation_actual.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programs\\Pokemon-Forme-Insertion\\user_data_handling.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:user_data_handling.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -11,23 +23,11 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:my_constants.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programs\\Pokemon-Forme-Insertion\\forme_importation_actual.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:forme_importation_actual.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programs\\Pokemon-Forme-Insertion\\file_handling.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:file_handling.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programs\\Pokemon-Forme-Insertion\\main.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programs\\Export-Pokedata-To-CSV\\utilities.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programs\\Pokemon-Forme-Insertion\\utilities.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:utilities.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,24 +37,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "file_handling.py",
-              "DocumentMoniker": "D:\\Programs\\Pokemon-Forme-Insertion\\file_handling.py",
-              "RelativeDocumentMoniker": "file_handling.py",
-              "ToolTip": "D:\\Programs\\Pokemon-Forme-Insertion\\file_handling.py",
-              "RelativeToolTip": "file_handling.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK0AAABAAAAAAAAAAA==",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd\u002BUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUdSURBVEhLvVbtS1tXHH5u3qqJTdT4hl2nVYO4unbKBsJW0IJrCcwP\u002B\u002BKYZaX7MnCFYXH9sj9g0MFY96nFL520bKzdhw6ck4lbsS\u002BbtdZ1BLU2SqbT1MT4rnm79\u002B45N7fTtDEpFPbAw8k5J/c89/md3/mdi/8VqqpK\u002Bs8kWK3WfSaTyap3nxcy6V9dXd1MdFMjpaDb7e5vbGw8SlF9JD0WFhawvr4eiEajX/T19V30\u002BXxr\u002BtQz2FWwq6vraG5urj6SHj09PVhZWVmm8OL09PSlwcHBryYmJjb06SQY9PaFUVlZmdvS0pJfXl7e1tDQ0Hnw4EGbPpUEo94mweVyfcCHD1gsFoyPjyMYDD7DUCiE/Px8SJKEyclJse\u002BgSHZFRcWeubm5Aj5bLMvyUCAQiOnLasjokG\u002BckmVlZZrY0ygpKdnb1tZWTWE3t6RdH/4PaQXFgsLlbnwCg8GAq1ev4uzZs\u002Bjs7MS5c\u002Bdsfr\u002B/nlMViX9sI20a8tjA4/HovWQYjUbU1NRoL9Xc3IympiZ9JgGv14uOjg69t42MDmtra1NSiAlRhYkeVQ2IqCZEYaYFi7afOyOwExn3cH5\u002BPiXDkSjG/Jv48b4f3/7\u002BN7pvTqN70IvLN734eXSWL2GE0\u002BnUV9lGWkERUnH4UzEumXBteAYzSxsYngrilwez6B3x4drtR7jY9xcGvSs4dPiwvtI2Moa0qKgoJSOKAfOhTVQU2ODIMkGRZahKXGtX1rcwMb\u002BGEyc/NLa2tiYdvYwOR0ZGUjImK/AvraH7xkOMzSyCZw5yXNEEZUX8llFUXGIoLS1NEkxb2hwOBxRF0caE27giwbsYxvzSpia4FYlxXiZVTPmXccszg9XNsCZ66GU7vjxVDbs5xEQqXoSl7POCwtLzGQVZlLU9i0kWfHf3H/zq8SMSFaGLIR5PhFDmb4WOZDmuOVM4frgsG1\u002BfVGFT7jFUDKS9VYb1dXfGkD5\u002B/FgrY56ZEB74ligmXMW0xTV3otVEE63WV\u002BMwSgrrZhQc4MXFG2v9hgjtRxmThiUK\u002B/fvx1pMQmhtK7GgcCEWf\u002BLwSV\u002BQAo5sC47U8CwqsxQLJxgepwP5rbQhtdvtWsUQob0zp\u002BDSb5Na\u002BGQKSXRfX74XR1zAHmNEi0aCCrN2A68W\u002BmA3TNNhhEJ0KpPl34jgpgeLMcS9aOSrSawripaJClzFWfi0eQFu1200V97F21XDOOa6h\u002BNVQ3hz3zDFvBTZoqDuUKawZJYyhjQnJwdZWVnIs5qRYzFAVhNhc9c5UWi\u002Bz2K8AoO6BoPCNh4kA0Bs6Skx0lwqBB9mTJrR0VGMjY2hMFtFudMGiXsoEiTPKqoojwz/Q8tAfMfiGikoWjEu5nMa\u002BYB0Oa2guHbq6upQXV2NmrJivNtwAEdeKUV9RSEctj0UoyAzFgoXB4UlXvKSnQ\u002BSpkJubjWQXQs4joeRd2xkYGDgwvN9JRGiktQfcOKNqiKtb1L9QID7IgRFQhiyeGflseWNIcRNBYDzxEMYbbd6e3v9Pt/319rb24MZk2YnRNWJxWIataq4M4TRBZ61YQ7zWqI7deNPRjt\u002B6/r16x\u002BfPn36M4rdF2vs6vDKlStahdkN77/3DoqMDFtsim8i0p4vodJxJMgE4ZDppaWenwY8Z850hvklpz/FiOttEp7nQzgQWHjNrMxewHJvHtaH6HCOo9xTiwuq46iq5DT90XXph1N0NpF44gXBLzaefdVFnicfkVFyg7xDftLf38/MeRrAv34myNw5rW5IAAAAAElFTkSuQmCC",
-              "WhenOpened": "2024-07-21T21:53:32.514Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -64,14 +51,14 @@
               "RelativeDocumentMoniker": "forme_importation_actual.py",
               "ToolTip": "D:\\Programs\\Pokemon-Forme-Insertion\\forme_importation_actual.py",
               "RelativeToolTip": "forme_importation_actual.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAB3AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHsAAAB3AAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd\u002BUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUdSURBVEhLvVbtS1tXHH5u3qqJTdT4hl2nVYO4unbKBsJW0IJrCcwP\u002B\u002BKYZaX7MnCFYXH9sj9g0MFY96nFL520bKzdhw6ck4lbsS\u002BbtdZ1BLU2SqbT1MT4rnm79\u002B45N7fTtDEpFPbAw8k5J/c89/md3/mdi/8VqqpK\u002Bs8kWK3WfSaTyap3nxcy6V9dXd1MdFMjpaDb7e5vbGw8SlF9JD0WFhawvr4eiEajX/T19V30\u002BXxr\u002BtQz2FWwq6vraG5urj6SHj09PVhZWVmm8OL09PSlwcHBryYmJjb06SQY9PaFUVlZmdvS0pJfXl7e1tDQ0Hnw4EGbPpUEo94mweVyfcCHD1gsFoyPjyMYDD7DUCiE/Px8SJKEyclJse\u002BgSHZFRcWeubm5Aj5bLMvyUCAQiOnLasjokG\u002BckmVlZZrY0ygpKdnb1tZWTWE3t6RdH/4PaQXFgsLlbnwCg8GAq1ev4uzZs\u002Bjs7MS5c\u002Bdsfr\u002B/nlMViX9sI20a8tjA4/HovWQYjUbU1NRoL9Xc3IympiZ9JgGv14uOjg69t42MDmtra1NSiAlRhYkeVQ2IqCZEYaYFi7afOyOwExn3cH5\u002BPiXDkSjG/Jv48b4f3/7\u002BN7pvTqN70IvLN734eXSWL2GE0\u002BnUV9lGWkERUnH4UzEumXBteAYzSxsYngrilwez6B3x4drtR7jY9xcGvSs4dPiwvtI2Moa0qKgoJSOKAfOhTVQU2ODIMkGRZahKXGtX1rcwMb\u002BGEyc/NLa2tiYdvYwOR0ZGUjImK/AvraH7xkOMzSyCZw5yXNEEZUX8llFUXGIoLS1NEkxb2hwOBxRF0caE27giwbsYxvzSpia4FYlxXiZVTPmXccszg9XNsCZ66GU7vjxVDbs5xEQqXoSl7POCwtLzGQVZlLU9i0kWfHf3H/zq8SMSFaGLIR5PhFDmb4WOZDmuOVM4frgsG1\u002BfVGFT7jFUDKS9VYb1dXfGkD5\u002B/FgrY56ZEB74ligmXMW0xTV3otVEE63WV\u002BMwSgrrZhQc4MXFG2v9hgjtRxmThiUK\u002B/fvx1pMQmhtK7GgcCEWf\u002BLwSV\u002BQAo5sC47U8CwqsxQLJxgepwP5rbQhtdvtWsUQob0zp\u002BDSb5Na\u002BGQKSXRfX74XR1zAHmNEi0aCCrN2A68W\u002BmA3TNNhhEJ0KpPl34jgpgeLMcS9aOSrSawripaJClzFWfi0eQFu1200V97F21XDOOa6h\u002BNVQ3hz3zDFvBTZoqDuUKawZJYyhjQnJwdZWVnIs5qRYzFAVhNhc9c5UWi\u002Bz2K8AoO6BoPCNh4kA0Bs6Skx0lwqBB9mTJrR0VGMjY2hMFtFudMGiXsoEiTPKqoojwz/Q8tAfMfiGikoWjEu5nMa\u002BYB0Oa2guHbq6upQXV2NmrJivNtwAEdeKUV9RSEctj0UoyAzFgoXB4UlXvKSnQ\u002BSpkJubjWQXQs4joeRd2xkYGDgwvN9JRGiktQfcOKNqiKtb1L9QID7IgRFQhiyeGflseWNIcRNBYDzxEMYbbd6e3v9Pt/319rb24MZk2YnRNWJxWIataq4M4TRBZ61YQ7zWqI7deNPRjt\u002B6/r16x\u002BfPn36M4rdF2vs6vDKlStahdkN77/3DoqMDFtsim8i0p4vodJxJMgE4ZDppaWenwY8Z850hvklpz/FiOttEp7nQzgQWHjNrMxewHJvHtaH6HCOo9xTiwuq46iq5DT90XXph1N0NpF44gXBLzaefdVFnicfkVFyg7xDftLf38/MeRrAv34myNw5rW5IAAAAAElFTkSuQmCC",
               "WhenOpened": "2024-05-02T05:13:19.174Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "my_constants.py",
               "DocumentMoniker": "D:\\Programs\\Pokemon-Forme-Insertion\\my_constants.py",
               "RelativeDocumentMoniker": "my_constants.py",
@@ -79,18 +66,17 @@
               "RelativeToolTip": "my_constants.py",
               "ViewState": "AgIAADYAAAAAAAAAAAAAADYAAAACjgAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd\u002BUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUdSURBVEhLvVbtS1tXHH5u3qqJTdT4hl2nVYO4unbKBsJW0IJrCcwP\u002B\u002BKYZaX7MnCFYXH9sj9g0MFY96nFL520bKzdhw6ck4lbsS\u002BbtdZ1BLU2SqbT1MT4rnm79\u002B45N7fTtDEpFPbAw8k5J/c89/md3/mdi/8VqqpK\u002Bs8kWK3WfSaTyap3nxcy6V9dXd1MdFMjpaDb7e5vbGw8SlF9JD0WFhawvr4eiEajX/T19V30\u002BXxr\u002BtQz2FWwq6vraG5urj6SHj09PVhZWVmm8OL09PSlwcHBryYmJjb06SQY9PaFUVlZmdvS0pJfXl7e1tDQ0Hnw4EGbPpUEo94mweVyfcCHD1gsFoyPjyMYDD7DUCiE/Px8SJKEyclJse\u002BgSHZFRcWeubm5Aj5bLMvyUCAQiOnLasjokG\u002BckmVlZZrY0ygpKdnb1tZWTWE3t6RdH/4PaQXFgsLlbnwCg8GAq1ev4uzZs\u002Bjs7MS5c\u002Bdsfr\u002B/nlMViX9sI20a8tjA4/HovWQYjUbU1NRoL9Xc3IympiZ9JgGv14uOjg69t42MDmtra1NSiAlRhYkeVQ2IqCZEYaYFi7afOyOwExn3cH5\u002BPiXDkSjG/Jv48b4f3/7\u002BN7pvTqN70IvLN734eXSWL2GE0\u002BnUV9lGWkERUnH4UzEumXBteAYzSxsYngrilwez6B3x4drtR7jY9xcGvSs4dPiwvtI2Moa0qKgoJSOKAfOhTVQU2ODIMkGRZahKXGtX1rcwMb\u002BGEyc/NLa2tiYdvYwOR0ZGUjImK/AvraH7xkOMzSyCZw5yXNEEZUX8llFUXGIoLS1NEkxb2hwOBxRF0caE27giwbsYxvzSpia4FYlxXiZVTPmXccszg9XNsCZ66GU7vjxVDbs5xEQqXoSl7POCwtLzGQVZlLU9i0kWfHf3H/zq8SMSFaGLIR5PhFDmb4WOZDmuOVM4frgsG1\u002BfVGFT7jFUDKS9VYb1dXfGkD5\u002B/FgrY56ZEB74ligmXMW0xTV3otVEE63WV\u002BMwSgrrZhQc4MXFG2v9hgjtRxmThiUK\u002B/fvx1pMQmhtK7GgcCEWf\u002BLwSV\u002BQAo5sC47U8CwqsxQLJxgepwP5rbQhtdvtWsUQob0zp\u002BDSb5Na\u002BGQKSXRfX74XR1zAHmNEi0aCCrN2A68W\u002BmA3TNNhhEJ0KpPl34jgpgeLMcS9aOSrSawripaJClzFWfi0eQFu1200V97F21XDOOa6h\u002BNVQ3hz3zDFvBTZoqDuUKawZJYyhjQnJwdZWVnIs5qRYzFAVhNhc9c5UWi\u002Bz2K8AoO6BoPCNh4kA0Bs6Skx0lwqBB9mTJrR0VGMjY2hMFtFudMGiXsoEiTPKqoojwz/Q8tAfMfiGikoWjEu5nMa\u002BYB0Oa2guHbq6upQXV2NmrJivNtwAEdeKUV9RSEctj0UoyAzFgoXB4UlXvKSnQ\u002BSpkJubjWQXQs4joeRd2xkYGDgwvN9JRGiktQfcOKNqiKtb1L9QID7IgRFQhiyeGflseWNIcRNBYDzxEMYbbd6e3v9Pt/319rb24MZk2YnRNWJxWIataq4M4TRBZ61YQ7zWqI7deNPRjt\u002B6/r16x\u002BfPn36M4rdF2vs6vDKlStahdkN77/3DoqMDFtsim8i0p4vodJxJMgE4ZDppaWenwY8Z850hvklpz/FiOttEp7nQzgQWHjNrMxewHJvHtaH6HCOo9xTiwuq46iq5DT90XXph1N0NpF44gXBLzaefdVFnicfkVFyg7xDftLf38/MeRrAv34myNw5rW5IAAAAAElFTkSuQmCC",
-              "WhenOpened": "2024-05-02T05:10:51.831Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-02T05:10:51.831Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "user_data_handling.py",
               "DocumentMoniker": "D:\\Programs\\Pokemon-Forme-Insertion\\user_data_handling.py",
               "RelativeDocumentMoniker": "user_data_handling.py",
               "ToolTip": "D:\\Programs\\Pokemon-Forme-Insertion\\user_data_handling.py",
               "RelativeToolTip": "user_data_handling.py",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAjwHUAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAgwKIAAAAEAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd\u002BUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUdSURBVEhLvVbtS1tXHH5u3qqJTdT4hl2nVYO4unbKBsJW0IJrCcwP\u002B\u002BKYZaX7MnCFYXH9sj9g0MFY96nFL520bKzdhw6ck4lbsS\u002BbtdZ1BLU2SqbT1MT4rnm79\u002B45N7fTtDEpFPbAw8k5J/c89/md3/mdi/8VqqpK\u002Bs8kWK3WfSaTyap3nxcy6V9dXd1MdFMjpaDb7e5vbGw8SlF9JD0WFhawvr4eiEajX/T19V30\u002BXxr\u002BtQz2FWwq6vraG5urj6SHj09PVhZWVmm8OL09PSlwcHBryYmJjb06SQY9PaFUVlZmdvS0pJfXl7e1tDQ0Hnw4EGbPpUEo94mweVyfcCHD1gsFoyPjyMYDD7DUCiE/Px8SJKEyclJse\u002BgSHZFRcWeubm5Aj5bLMvyUCAQiOnLasjokG\u002BckmVlZZrY0ygpKdnb1tZWTWE3t6RdH/4PaQXFgsLlbnwCg8GAq1ev4uzZs\u002Bjs7MS5c\u002Bdsfr\u002B/nlMViX9sI20a8tjA4/HovWQYjUbU1NRoL9Xc3IympiZ9JgGv14uOjg69t42MDmtra1NSiAlRhYkeVQ2IqCZEYaYFi7afOyOwExn3cH5\u002BPiXDkSjG/Jv48b4f3/7\u002BN7pvTqN70IvLN734eXSWL2GE0\u002BnUV9lGWkERUnH4UzEumXBteAYzSxsYngrilwez6B3x4drtR7jY9xcGvSs4dPiwvtI2Moa0qKgoJSOKAfOhTVQU2ODIMkGRZahKXGtX1rcwMb\u002BGEyc/NLa2tiYdvYwOR0ZGUjImK/AvraH7xkOMzSyCZw5yXNEEZUX8llFUXGIoLS1NEkxb2hwOBxRF0caE27giwbsYxvzSpia4FYlxXiZVTPmXccszg9XNsCZ66GU7vjxVDbs5xEQqXoSl7POCwtLzGQVZlLU9i0kWfHf3H/zq8SMSFaGLIR5PhFDmb4WOZDmuOVM4frgsG1\u002BfVGFT7jFUDKS9VYb1dXfGkD5\u002B/FgrY56ZEB74ligmXMW0xTV3otVEE63WV\u002BMwSgrrZhQc4MXFG2v9hgjtRxmThiUK\u002B/fvx1pMQmhtK7GgcCEWf\u002BLwSV\u002BQAo5sC47U8CwqsxQLJxgepwP5rbQhtdvtWsUQob0zp\u002BDSb5Na\u002BGQKSXRfX74XR1zAHmNEi0aCCrN2A68W\u002BmA3TNNhhEJ0KpPl34jgpgeLMcS9aOSrSawripaJClzFWfi0eQFu1200V97F21XDOOa6h\u002BNVQ3hz3zDFvBTZoqDuUKawZJYyhjQnJwdZWVnIs5qRYzFAVhNhc9c5UWi\u002Bz2K8AoO6BoPCNh4kA0Bs6Skx0lwqBB9mTJrR0VGMjY2hMFtFudMGiXsoEiTPKqoojwz/Q8tAfMfiGikoWjEu5nMa\u002BYB0Oa2guHbq6upQXV2NmrJivNtwAEdeKUV9RSEctj0UoyAzFgoXB4UlXvKSnQ\u002BSpkJubjWQXQs4joeRd2xkYGDgwvN9JRGiktQfcOKNqiKtb1L9QID7IgRFQhiyeGflseWNIcRNBYDzxEMYbbd6e3v9Pt/319rb24MZk2YnRNWJxWIataq4M4TRBZ61YQ7zWqI7deNPRjt\u002B6/r16x\u002BfPn36M4rdF2vs6vDKlStahdkN77/3DoqMDFtsim8i0p4vodJxJMgE4ZDppaWenwY8Z850hvklpz/FiOttEp7nQzgQWHjNrMxewHJvHtaH6HCOo9xTiwuq46iq5DT90XXph1N0NpF44gXBLzaefdVFnicfkVFyg7xDftLf38/MeRrAv34myNw5rW5IAAAAAElFTkSuQmCC",
               "WhenOpened": "2024-05-26T09:41:55.816Z",
               "EditorCaption": ""
@@ -98,6 +84,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "file_handling.py",
+              "DocumentMoniker": "D:\\Programs\\Pokemon-Forme-Insertion\\file_handling.py",
+              "RelativeDocumentMoniker": "file_handling.py",
+              "ToolTip": "D:\\Programs\\Pokemon-Forme-Insertion\\file_handling.py",
+              "RelativeToolTip": "file_handling.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK0AAABAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd\u002BUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUdSURBVEhLvVbtS1tXHH5u3qqJTdT4hl2nVYO4unbKBsJW0IJrCcwP\u002B\u002BKYZaX7MnCFYXH9sj9g0MFY96nFL520bKzdhw6ck4lbsS\u002BbtdZ1BLU2SqbT1MT4rnm79\u002B45N7fTtDEpFPbAw8k5J/c89/md3/mdi/8VqqpK\u002Bs8kWK3WfSaTyap3nxcy6V9dXd1MdFMjpaDb7e5vbGw8SlF9JD0WFhawvr4eiEajX/T19V30\u002BXxr\u002BtQz2FWwq6vraG5urj6SHj09PVhZWVmm8OL09PSlwcHBryYmJjb06SQY9PaFUVlZmdvS0pJfXl7e1tDQ0Hnw4EGbPpUEo94mweVyfcCHD1gsFoyPjyMYDD7DUCiE/Px8SJKEyclJse\u002BgSHZFRcWeubm5Aj5bLMvyUCAQiOnLasjokG\u002BckmVlZZrY0ygpKdnb1tZWTWE3t6RdH/4PaQXFgsLlbnwCg8GAq1ev4uzZs\u002Bjs7MS5c\u002Bdsfr\u002B/nlMViX9sI20a8tjA4/HovWQYjUbU1NRoL9Xc3IympiZ9JgGv14uOjg69t42MDmtra1NSiAlRhYkeVQ2IqCZEYaYFi7afOyOwExn3cH5\u002BPiXDkSjG/Jv48b4f3/7\u002BN7pvTqN70IvLN734eXSWL2GE0\u002BnUV9lGWkERUnH4UzEumXBteAYzSxsYngrilwez6B3x4drtR7jY9xcGvSs4dPiwvtI2Moa0qKgoJSOKAfOhTVQU2ODIMkGRZahKXGtX1rcwMb\u002BGEyc/NLa2tiYdvYwOR0ZGUjImK/AvraH7xkOMzSyCZw5yXNEEZUX8llFUXGIoLS1NEkxb2hwOBxRF0caE27giwbsYxvzSpia4FYlxXiZVTPmXccszg9XNsCZ66GU7vjxVDbs5xEQqXoSl7POCwtLzGQVZlLU9i0kWfHf3H/zq8SMSFaGLIR5PhFDmb4WOZDmuOVM4frgsG1\u002BfVGFT7jFUDKS9VYb1dXfGkD5\u002B/FgrY56ZEB74ligmXMW0xTV3otVEE63WV\u002BMwSgrrZhQc4MXFG2v9hgjtRxmThiUK\u002B/fvx1pMQmhtK7GgcCEWf\u002BLwSV\u002BQAo5sC47U8CwqsxQLJxgepwP5rbQhtdvtWsUQob0zp\u002BDSb5Na\u002BGQKSXRfX74XR1zAHmNEi0aCCrN2A68W\u002BmA3TNNhhEJ0KpPl34jgpgeLMcS9aOSrSawripaJClzFWfi0eQFu1200V97F21XDOOa6h\u002BNVQ3hz3zDFvBTZoqDuUKawZJYyhjQnJwdZWVnIs5qRYzFAVhNhc9c5UWi\u002Bz2K8AoO6BoPCNh4kA0Bs6Skx0lwqBB9mTJrR0VGMjY2hMFtFudMGiXsoEiTPKqoojwz/Q8tAfMfiGikoWjEu5nMa\u002BYB0Oa2guHbq6upQXV2NmrJivNtwAEdeKUV9RSEctj0UoyAzFgoXB4UlXvKSnQ\u002BSpkJubjWQXQs4joeRd2xkYGDgwvN9JRGiktQfcOKNqiKtb1L9QID7IgRFQhiyeGflseWNIcRNBYDzxEMYbbd6e3v9Pt/319rb24MZk2YnRNWJxWIataq4M4TRBZ61YQ7zWqI7deNPRjt\u002B6/r16x\u002BfPn36M4rdF2vs6vDKlStahdkN77/3DoqMDFtsim8i0p4vodJxJMgE4ZDppaWenwY8Z850hvklpz/FiOttEp7nQzgQWHjNrMxewHJvHtaH6HCOo9xTiwuq46iq5DT90XXph1N0NpF44gXBLzaefdVFnicfkVFyg7xDftLf38/MeRrAv34myNw5rW5IAAAAAElFTkSuQmCC",
+              "WhenOpened": "2024-07-21T21:53:32.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "utilities.py",
               "DocumentMoniker": "D:\\Programs\\Export-Pokedata-To-CSV\\utilities.py",
               "RelativeDocumentMoniker": "..\\Export-Pokedata-To-CSV\\utilities.py",
@@ -109,27 +107,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "main.py",
               "DocumentMoniker": "D:\\Programs\\Pokemon-Forme-Insertion\\main.py",
               "RelativeDocumentMoniker": "main.py",
               "ToolTip": "D:\\Programs\\Pokemon-Forme-Insertion\\main.py",
               "RelativeToolTip": "main.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAPkBAAAAAAAAAAAhwBkCAAA6AAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd\u002BUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUdSURBVEhLvVbtS1tXHH5u3qqJTdT4hl2nVYO4unbKBsJW0IJrCcwP\u002B\u002BKYZaX7MnCFYXH9sj9g0MFY96nFL520bKzdhw6ck4lbsS\u002BbtdZ1BLU2SqbT1MT4rnm79\u002B45N7fTtDEpFPbAw8k5J/c89/md3/mdi/8VqqpK\u002Bs8kWK3WfSaTyap3nxcy6V9dXd1MdFMjpaDb7e5vbGw8SlF9JD0WFhawvr4eiEajX/T19V30\u002BXxr\u002BtQz2FWwq6vraG5urj6SHj09PVhZWVmm8OL09PSlwcHBryYmJjb06SQY9PaFUVlZmdvS0pJfXl7e1tDQ0Hnw4EGbPpUEo94mweVyfcCHD1gsFoyPjyMYDD7DUCiE/Px8SJKEyclJse\u002BgSHZFRcWeubm5Aj5bLMvyUCAQiOnLasjokG\u002BckmVlZZrY0ygpKdnb1tZWTWE3t6RdH/4PaQXFgsLlbnwCg8GAq1ev4uzZs\u002Bjs7MS5c\u002Bdsfr\u002B/nlMViX9sI20a8tjA4/HovWQYjUbU1NRoL9Xc3IympiZ9JgGv14uOjg69t42MDmtra1NSiAlRhYkeVQ2IqCZEYaYFi7afOyOwExn3cH5\u002BPiXDkSjG/Jv48b4f3/7\u002BN7pvTqN70IvLN734eXSWL2GE0\u002BnUV9lGWkERUnH4UzEumXBteAYzSxsYngrilwez6B3x4drtR7jY9xcGvSs4dPiwvtI2Moa0qKgoJSOKAfOhTVQU2ODIMkGRZahKXGtX1rcwMb\u002BGEyc/NLa2tiYdvYwOR0ZGUjImK/AvraH7xkOMzSyCZw5yXNEEZUX8llFUXGIoLS1NEkxb2hwOBxRF0caE27giwbsYxvzSpia4FYlxXiZVTPmXccszg9XNsCZ66GU7vjxVDbs5xEQqXoSl7POCwtLzGQVZlLU9i0kWfHf3H/zq8SMSFaGLIR5PhFDmb4WOZDmuOVM4frgsG1\u002BfVGFT7jFUDKS9VYb1dXfGkD5\u002B/FgrY56ZEB74ligmXMW0xTV3otVEE63WV\u002BMwSgrrZhQc4MXFG2v9hgjtRxmThiUK\u002B/fvx1pMQmhtK7GgcCEWf\u002BLwSV\u002BQAo5sC47U8CwqsxQLJxgepwP5rbQhtdvtWsUQob0zp\u002BDSb5Na\u002BGQKSXRfX74XR1zAHmNEi0aCCrN2A68W\u002BmA3TNNhhEJ0KpPl34jgpgeLMcS9aOSrSawripaJClzFWfi0eQFu1200V97F21XDOOa6h\u002BNVQ3hz3zDFvBTZoqDuUKawZJYyhjQnJwdZWVnIs5qRYzFAVhNhc9c5UWi\u002Bz2K8AoO6BoPCNh4kA0Bs6Skx0lwqBB9mTJrR0VGMjY2hMFtFudMGiXsoEiTPKqoojwz/Q8tAfMfiGikoWjEu5nMa\u002BYB0Oa2guHbq6upQXV2NmrJivNtwAEdeKUV9RSEctj0UoyAzFgoXB4UlXvKSnQ\u002BSpkJubjWQXQs4joeRd2xkYGDgwvN9JRGiktQfcOKNqiKtb1L9QID7IgRFQhiyeGflseWNIcRNBYDzxEMYbbd6e3v9Pt/319rb24MZk2YnRNWJxWIataq4M4TRBZ61YQ7zWqI7deNPRjt\u002B6/r16x\u002BfPn36M4rdF2vs6vDKlStahdkN77/3DoqMDFtsim8i0p4vodJxJMgE4ZDppaWenwY8Z850hvklpz/FiOttEp7nQzgQWHjNrMxewHJvHtaH6HCOo9xTiwuq46iq5DT90XXph1N0NpF44gXBLzaefdVFnicfkVFyg7xDftLf38/MeRrAv34myNw5rW5IAAAAAElFTkSuQmCC",
-              "WhenOpened": "2024-05-02T03:16:35.638Z"
+              "WhenOpened": "2024-05-02T03:16:35.638Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "utilities.py",
               "DocumentMoniker": "D:\\Programs\\Pokemon-Forme-Insertion\\utilities.py",
               "RelativeDocumentMoniker": "utilities.py",
               "ToolTip": "D:\\Programs\\Pokemon-Forme-Insertion\\utilities.py",
               "RelativeToolTip": "utilities.py",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAswFgAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAswE4AAAAAAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd\u002BUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUdSURBVEhLvVbtS1tXHH5u3qqJTdT4hl2nVYO4unbKBsJW0IJrCcwP\u002B\u002BKYZaX7MnCFYXH9sj9g0MFY96nFL520bKzdhw6ck4lbsS\u002BbtdZ1BLU2SqbT1MT4rnm79\u002B45N7fTtDEpFPbAw8k5J/c89/md3/mdi/8VqqpK\u002Bs8kWK3WfSaTyap3nxcy6V9dXd1MdFMjpaDb7e5vbGw8SlF9JD0WFhawvr4eiEajX/T19V30\u002BXxr\u002BtQz2FWwq6vraG5urj6SHj09PVhZWVmm8OL09PSlwcHBryYmJjb06SQY9PaFUVlZmdvS0pJfXl7e1tDQ0Hnw4EGbPpUEo94mweVyfcCHD1gsFoyPjyMYDD7DUCiE/Px8SJKEyclJse\u002BgSHZFRcWeubm5Aj5bLMvyUCAQiOnLasjokG\u002BckmVlZZrY0ygpKdnb1tZWTWE3t6RdH/4PaQXFgsLlbnwCg8GAq1ev4uzZs\u002Bjs7MS5c\u002Bdsfr\u002B/nlMViX9sI20a8tjA4/HovWQYjUbU1NRoL9Xc3IympiZ9JgGv14uOjg69t42MDmtra1NSiAlRhYkeVQ2IqCZEYaYFi7afOyOwExn3cH5\u002BPiXDkSjG/Jv48b4f3/7\u002BN7pvTqN70IvLN734eXSWL2GE0\u002BnUV9lGWkERUnH4UzEumXBteAYzSxsYngrilwez6B3x4drtR7jY9xcGvSs4dPiwvtI2Moa0qKgoJSOKAfOhTVQU2ODIMkGRZahKXGtX1rcwMb\u002BGEyc/NLa2tiYdvYwOR0ZGUjImK/AvraH7xkOMzSyCZw5yXNEEZUX8llFUXGIoLS1NEkxb2hwOBxRF0caE27giwbsYxvzSpia4FYlxXiZVTPmXccszg9XNsCZ66GU7vjxVDbs5xEQqXoSl7POCwtLzGQVZlLU9i0kWfHf3H/zq8SMSFaGLIR5PhFDmb4WOZDmuOVM4frgsG1\u002BfVGFT7jFUDKS9VYb1dXfGkD5\u002B/FgrY56ZEB74ligmXMW0xTV3otVEE63WV\u002BMwSgrrZhQc4MXFG2v9hgjtRxmThiUK\u002B/fvx1pMQmhtK7GgcCEWf\u002BLwSV\u002BQAo5sC47U8CwqsxQLJxgepwP5rbQhtdvtWsUQob0zp\u002BDSb5Na\u002BGQKSXRfX74XR1zAHmNEi0aCCrN2A68W\u002BmA3TNNhhEJ0KpPl34jgpgeLMcS9aOSrSawripaJClzFWfi0eQFu1200V97F21XDOOa6h\u002BNVQ3hz3zDFvBTZoqDuUKawZJYyhjQnJwdZWVnIs5qRYzFAVhNhc9c5UWi\u002Bz2K8AoO6BoPCNh4kA0Bs6Skx0lwqBB9mTJrR0VGMjY2hMFtFudMGiXsoEiTPKqoojwz/Q8tAfMfiGikoWjEu5nMa\u002BYB0Oa2guHbq6upQXV2NmrJivNtwAEdeKUV9RSEctj0UoyAzFgoXB4UlXvKSnQ\u002BSpkJubjWQXQs4joeRd2xkYGDgwvN9JRGiktQfcOKNqiKtb1L9QID7IgRFQhiyeGflseWNIcRNBYDzxEMYbbd6e3v9Pt/319rb24MZk2YnRNWJxWIataq4M4TRBZ61YQ7zWqI7deNPRjt\u002B6/r16x\u002BfPn36M4rdF2vs6vDKlStahdkN77/3DoqMDFtsim8i0p4vodJxJMgE4ZDppaWenwY8Z850hvklpz/FiOttEp7nQzgQWHjNrMxewHJvHtaH6HCOo9xTiwuq46iq5DT90XXph1N0NpF44gXBLzaefdVFnicfkVFyg7xDftLf38/MeRrAv34myNw5rW5IAAAAAElFTkSuQmCC",
-              "WhenOpened": "2024-07-01T18:33:34.642Z"
+              "WhenOpened": "2024-07-01T18:33:34.642Z",
+              "EditorCaption": ""
             }
           ]
         }

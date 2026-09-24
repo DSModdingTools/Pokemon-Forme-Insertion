@@ -535,7 +535,7 @@ skip_model_checkbutton = Checkbutton(
 skip_model_checkbutton.grid(row=1, column=1, sticky="nsew")
 skip_model_checkbutton.select()
 
-log_window_title = tkinter.Label(root, text="Log Messages", relief="raised")
+log_window_title = tkinter.Label(root, text="Log Messages")
 log_window_title.grid(row=4, column=6)
 
 
