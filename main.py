@@ -56,8 +56,8 @@ def pre_check(poke_edit_data):
                 poke_edit_data.master_formes_list.index(personal_combobox.get().title())
             )
     except:  # ruff: ignore[E722]
-        print("Error at personal,", personal_combobox.get(), "not found.")
-        return
+        logger.exception("Error at personal, '%s' %s", personal_combobox.get(), "not found.")
+        return None
 
     # levelup
     try:
@@ -69,8 +69,8 @@ def pre_check(poke_edit_data):
                 poke_edit_data.master_formes_list.index(levelup_combobox.get().title())
             )
     except:  # ruff: ignore[E722]
-        print("Error at levelup,", levelup_combobox.get(), "not found.")
-        return
+        logger.exception("Error at levelup '%s' %s,", levelup_combobox.get(), "not found.")
+        return None
 
     # evolution
     try:
@@ -84,8 +84,8 @@ def pre_check(poke_edit_data):
                 )
             )
     except:  # ruff: ignore[E722]
-        print("Error at evolution,", evolution_combobox.get(), "not found.")
-        return
+        logger.exception("Error at evolution, '%s' %s", evolution_combobox.get(), "not found.")
+        return None
 
     # if skip_model_creation_bool is true, checkbox is unclicked, and we want to try skipping model insertion. If it's false (as per default), just set to false, no need for further check
     if skip_model_creation_bool.get():
@@ -118,10 +118,10 @@ def pre_check(poke_edit_data):
             int(poke_edit_data.master_list_csv[model_source_index_row][5]) == 0
             and int(poke_edit_data.master_list_csv[model_source_index_row][6]) == 0
         ):
-            print("Bitflag check clear\n")
+            logger.debug("Bitflag check clear\n")
         else:
-            print(
-                "\nIf bitflags of the selected model are not 0, it is possible that using this source will cause glitches.\nIt is STRONGLY recommended that you confirm you have backups before you proceed.\nBitflag is ",
+            logger.info(
+                "\nIf bitflags of the selected model are not 0, it is possible that using this source will cause glitches.\nIt is STRONGLY recommended that you confirm you have backups before you proceed.\nBitflag is %s %s ",
                 poke_edit_data.master_list_csv[model_source_index_row][5],
                 poke_edit_data.master_list_csv[model_source_index_row][6],
             )
@@ -131,9 +131,9 @@ def pre_check(poke_edit_data):
                     break
                 elif continue_bool in {"n", "N"}:
                     return poke_edit_data
-                print("Invalid entry")
-    except Exception as e:  # ruff: ignore[BLE001]
-        print("Error when trying to check the source model bitflags, error:", e)
+                logger.warning("Invalid entry")
+    except Exception:
+        logger.exception("Error when trying to check the source model bitflags, error:")
 
     # print(model_source_index)
     poke_edit_data = add_new_forme_execute(
