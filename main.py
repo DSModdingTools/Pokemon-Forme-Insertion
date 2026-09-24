@@ -260,6 +260,9 @@ parser = argparse.ArgumentParser(
     add_help=True,
     allow_abbrev=False,
 )
+parser.add_argument('--version',
+                    action='version',
+                    version=f"%(prog)s {version}")
 parser.add_argument(
     "-v", "--verbose", help="increase output verbosity", action="store_true"
 )
