@@ -24,11 +24,11 @@ def pre_check(poke_edit_data):
             )
             + 1
         )
-    except:  # ruff: ignore[E722]
-        logger.error(
+    except Exception:
+        logger.exception(
             f"Error at base species '{base_species_combobox.get()}' not found."
         )
-        return
+        return None
 
     # number of formes to add
     new_forme_count = int(number_formes_entry.get())
@@ -42,9 +42,9 @@ def pre_check(poke_edit_data):
             model_source_index = int(
                 poke_edit_data.model_source_list.index(model_combobox.get().title())
             )
-    except:  # ruff: ignore[E722]
-        logger.warning("Error at model,", model_combobox.get(), "not found.")  # ruff: ignore[PLE1205]
-        return
+    except Exception:
+        logger.exception("Error at model, '%s' %s", model_combobox.get(), "not found.")
+        return None
 
     # personal
     try:
@@ -55,7 +55,7 @@ def pre_check(poke_edit_data):
             personal_source_index = int(
                 poke_edit_data.master_formes_list.index(personal_combobox.get().title())
             )
-    except:  # ruff: ignore[E722]
+    except Exception:
         logger.exception("Error at personal, '%s' %s", personal_combobox.get(), "not found.")
         return None
 
@@ -68,7 +68,7 @@ def pre_check(poke_edit_data):
             levelup_source_index = int(
                 poke_edit_data.master_formes_list.index(levelup_combobox.get().title())
             )
-    except:  # ruff: ignore[E722]
+    except Exception:
         logger.exception("Error at levelup '%s' %s,", levelup_combobox.get(), "not found.")
         return None
 
@@ -83,7 +83,7 @@ def pre_check(poke_edit_data):
                     evolution_combobox.get().title()
                 )
             )
-    except:  # ruff: ignore[E722]
+    except Exception:
         logger.exception("Error at evolution, '%s' %s", evolution_combobox.get(), "not found.")
         return None
 
