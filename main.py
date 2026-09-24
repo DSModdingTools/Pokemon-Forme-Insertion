@@ -171,15 +171,15 @@ def set_games_checklist(gameinput):
 
 def update_non_model_lists(poke_edit_data):
 
-    personal_combobox.config(value=poke_edit_data.master_formes_list)
-    evolution_combobox.config(value=poke_edit_data.master_formes_list)
-    levelup_combobox.config(value=poke_edit_data.master_formes_list)
+    personal_combobox.config(value=poke_edit_data.master_formes_list)  # ty: ignore[no-matching-overload]
+    evolution_combobox.config(value=poke_edit_data.master_formes_list)  # ty: ignore[no-matching-overload]
+    levelup_combobox.config(value=poke_edit_data.master_formes_list)  # ty: ignore[no-matching-overload]
 
-    base_species_combobox.config(value=poke_edit_data.base_species_list)
+    base_species_combobox.config(value=poke_edit_data.base_species_list)  # ty: ignore[no-matching-overload]
 
 
 def update_model_list_for_box(poke_edit_data):
-    model_combobox.config(value=poke_edit_data.model_source_list)
+    model_combobox.config(value=poke_edit_data.model_source_list)  # ty: ignore[no-matching-overload]
 
 
 # these are ugly, need to figure out passing event to consolidate
@@ -251,10 +251,10 @@ def model_combobox_search(event):
 
 
 for x in range(5):
-    Grid.rowconfigure(root, x, weight=1)
+    Grid.rowconfigure(root, x, weight=1)  # ty: ignore[unresolved-attribute]
 
 for y in range(7):
-    Grid.columnconfigure(root, y, weight=1)
+    Grid.columnconfigure(root, y, weight=1)  # ty: ignore[unresolved-attribute]
 
 parser = argparse.ArgumentParser(
     add_help=True,
@@ -273,7 +273,7 @@ else:
     logging.basicConfig(level=logging.INFO)
 
 if args.log_server_port:
-    t = logging.config.listen(args.log_server_port)
+    t = logging.config.listen(args.log_server_port)  # ty: ignore[possibly-missing-submodule]
     t.start()
 
 coloredlogs.install()
@@ -455,7 +455,7 @@ evolution_checkbutton = Checkbutton(
 evolution_checkbutton.grid(row=1, column=5, sticky="nsew")
 evolution_checkbutton.select()
 # base species combobox
-base_species_combobox = ttk.Combobox(root, value=[], width=18)
+base_species_combobox = ttk.Combobox(root, value=[], width=18)  # ty: ignore[unknown-argument]
 base_species_combobox.grid(row=3, column=0, sticky="new")
 
 base_species_combobox.bind("<KeyRelease>", base_species_combobox_search)
@@ -468,19 +468,19 @@ number_formes_entry = Entry(root, width=12)
 number_formes_entry.grid(row=3, column=1, sticky="new")
 
 # model combobox
-model_combobox = ttk.Combobox(root, value=[], width=18)
+model_combobox = ttk.Combobox(root, value=[], width=18)  # ty: ignore[unknown-argument]
 model_combobox.grid(row=3, column=2, sticky="new")
 
 model_combobox.bind("<KeyRelease>", model_combobox_search)
 
 # personal combobox
-personal_combobox = ttk.Combobox(root, value=[], width=18)
+personal_combobox = ttk.Combobox(root, value=[], width=18)  # ty: ignore[unknown-argument]
 personal_combobox.grid(row=3, column=3, sticky="new")
 
 personal_combobox.bind("<KeyRelease>", personal_combobox_search)
 
 # levelup combobox
-levelup_combobox = ttk.Combobox(root, value=[], width=18)
+levelup_combobox = ttk.Combobox(root, value=[], width=18)  # ty: ignore[unknown-argument]
 levelup_combobox.grid(row=3, column=4, sticky="new")
 
 levelup_combobox.bind("<KeyRelease>", levelup_combobox_search)

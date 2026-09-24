@@ -170,7 +170,7 @@ def reconstruct_GARC(poke_edit_data, GARC_name):
 
     pointer += 4
     # FIMB header length (3 high bytes are zero)
-    temp[pointer] = [0x0C]
+    temp[pointer] = [0x0C]  # ty: ignore[invalid-assignment]
     # before we write the BFAT blocks, add the FIMB header so we can write those blocks and actual files at once
 
     # this will point at end of file
@@ -707,7 +707,7 @@ def load_names_from_CSV(poke_edit_data, just_wrote=False):
             poke_edit_data.master_formes_list = temp_master_formes_list.copy()
             poke_edit_data.model_source_list = temp_model_source_list.copy()
     except Exception:
-        logger.exception()
+        logger.exception()  # ty: ignore[missing-argument]
         return poke_edit_data
 
     poke_edit_data.master_list_csv = temp_loaded_csv.copy()
@@ -820,7 +820,7 @@ def write_CSV(poke_edit_data, csv_path=""):
                                 (enum - 1) * model_file_count + x + model_file_start
                                 for x in range(model_file_count)
                             ]
-                            + ""
+                            + ""  # ty: ignore[unsupported-operator]
                             + [pokemon_instance[5], pokemon_instance[6]]
                         )
 
