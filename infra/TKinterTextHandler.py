@@ -16,5 +16,4 @@ class TKinterTextHandler(logging.Handler):
             self.text.configure(state="disabled")
             self.text.yview(tkinter.END)
 
-        # This is necessary because we can't modify the Text from other threads
         self.text.after(0, append)
