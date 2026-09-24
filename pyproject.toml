@@ -1,11 +1,10 @@
 [project]
 name = "pokemon-forme-insertion"
-version = "0.1.0"
+version = "3.1"
 description = "Add your description here"
 requires-python = ">=3.13"
 dependencies = [
     "coloredlogs>=15.0.1",
-    "ty>=0.0.84",
 ]
 
 [dependency-groups]
@@ -13,6 +12,7 @@ dev = [
     "coverage>=7.16.1",
     "pytest>=9.1.1",
     "ruff>=0.16.8",
+    "ty>=0.0.84",
 ]
 
 [tool.setuptools]
