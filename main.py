@@ -171,15 +171,15 @@ def set_games_checklist(gameinput):
 
 def update_non_model_lists(poke_edit_data):
 
-    personal_combobox.config(value=poke_edit_data.master_formes_list)  # ty: ignore[no-matching-overload]
-    evolution_combobox.config(value=poke_edit_data.master_formes_list)  # ty: ignore[no-matching-overload]
-    levelup_combobox.config(value=poke_edit_data.master_formes_list)  # ty: ignore[no-matching-overload]
+    personal_combobox.config(values=poke_edit_data.master_formes_list)
+    evolution_combobox.config(values=poke_edit_data.master_formes_list)
+    levelup_combobox.config(values=poke_edit_data.master_formes_list)
 
-    base_species_combobox.config(value=poke_edit_data.base_species_list)  # ty: ignore[no-matching-overload]
+    base_species_combobox.config(values=poke_edit_data.base_species_list)
 
 
 def update_model_list_for_box(poke_edit_data):
-    model_combobox.config(value=poke_edit_data.model_source_list)  # ty: ignore[no-matching-overload]
+    model_combobox.config(values=poke_edit_data.model_source_list)
 
 
 # these are ugly, need to figure out passing event to consolidate
