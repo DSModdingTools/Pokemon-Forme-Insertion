@@ -155,7 +155,6 @@ def pre_check(poke_edit_data):
 
 root = Tk()
 root.title("Pokemon Forme Insertion V." + version)
-root.geometry("1250x800")
 
 poke_edit_data = Pokedata()
 
@@ -252,10 +251,10 @@ def model_combobox_search(event):
 
 
 for x in range(5):
-    Grid.rowconfigure(root, x, weight=1)  # ty: ignore[unresolved-attribute]
+    root.rowconfigure(x, weight=1)
 
 for y in range(7):
-    Grid.columnconfigure(root, y, weight=1)  # ty: ignore[unresolved-attribute]
+    root.columnconfigure(y, weight=1)
 
 parser = argparse.ArgumentParser(
     add_help=True,
