@@ -3,6 +3,7 @@ import logging
 from functools import reduce
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
+from datum.garcs import is_garcs_loaded
 from file_handling import *
 from utilities import *
 
@@ -841,7 +842,7 @@ def user_prompt_write_CSV(poke_edit_data, target, gamesassert=""):
     if gamesassert != "":
         poke_edit_data.game = gamesassert
 
-    if not poke_edit_data.model:
+    if not is_garcs_loaded(poke_edit_data):
         print("Please load the GARCs before creating CSV")
         return poke_edit_data
 

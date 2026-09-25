@@ -1,6 +1,7 @@
 import argparse
 import logging
 import logging.config
+import tkinter.constants
 import tkinter.scrolledtext
 from tkinter import *
 from tkinter import ttk
@@ -181,6 +182,11 @@ def update_non_model_lists(poke_edit_data):
 def update_model_list_for_box(poke_edit_data):
     model_combobox.config(values=poke_edit_data.model_source_list)
 
+def update_button_states(poke_edit_data) -> None:
+    if is_garcs_loaded(poke_edit_data):
+        save_pokelist_csv_button.configure(state=tkinter.NORMAL)
+    else:
+        save_pokelist_csv_button.configure(state=tkinter.DISABLED)
 
 # these are ugly, need to figure out passing event to consolidate
 def base_species_combobox_search(event):
@@ -324,6 +330,7 @@ save_pokelist_csv_button = Button(
         ),
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
+        update_button_states(poke_edit_data),
     ],
 )
 save_pokelist_csv_button.grid(row=1, column=6, sticky="ew")
@@ -348,6 +355,7 @@ model_load = Button(
     command=lambda: [
         choose_GARC(poke_edit_data, "Model", games_temp.get()),
         update_model_list_for_box(poke_edit_data),
+        update_button_states(poke_edit_data),
     ],
 )
 model_load.grid(row=0, column=2, sticky="ew")
@@ -360,6 +368,7 @@ personal_load = Button(
         choose_GARC(poke_edit_data, "Personal", games_temp.get()),
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
+        update_button_states(poke_edit_data),
     ],
 )
 personal_load.grid(row=0, column=3, sticky="ew")
@@ -477,6 +486,7 @@ sort_button = Button(
         resort_file_structure(poke_edit_data),
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
+        update_button_states(poke_edit_data),
     ],
 )
 sort_button.grid(row=2, column=6, sticky="nsew")
@@ -489,6 +499,7 @@ execute_button = Button(
         pre_check(poke_edit_data),
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
+        update_button_states(poke_edit_data),
     ],
 )
 execute_button.grid(row=3, column=6, sticky="nsew")
@@ -515,6 +526,8 @@ text_handler = infra.TKinterTextHandler.TKinterTextHandler(log_window)
 
 logger = logging.getLogger(__name__)
 logger.addHandler(text_handler)
+
+update_button_states(poke_edit_data)
 
 if __name__ == "__main__":
     root.mainloop()
