@@ -8,7 +8,7 @@ def from_little_bytes_int(byte_input) -> int:
     temp = 0
     for x, byte in enumerate(byte_input):
         temp += byte << (x * 8)
-    return temp
+    return temp  # ty: ignore[unsound-return-statement]
 
 
 # convert integer input into little-endian hex with given padding (default 0x4 bytes)
@@ -43,7 +43,9 @@ def entire_of_column(input_table, column_number, allow_multiple=True):
 
 # returns a list of the indices of the rows that contain the specified search term in the specified column.
 def find_rows_with_column_matching(
-    input_table, column_number, search_term,
+    input_table,
+    column_number,
+    search_term,
 ) -> list[int]:
     found_table = []
     for row_index, rows in enumerate(input_table):

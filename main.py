@@ -10,6 +10,7 @@ from tkinter.ttk import *
 import coloredlogs
 
 import infra.TKinterTextHandler
+import infra.TkLogWidget
 from forme_importation_actual import *
 from utilities import *
 
@@ -95,7 +96,7 @@ def pre_check(poke_edit_data: Pokedata):
             check_adding_without_models_works(
                 poke_edit_data, base_form_index, new_forme_count
             )
-        )
+        )  # ty: ignore[unsound-assignment]
         # if the above check function returned false, something is not quite right, abort
         if not (skip_model_insertion):
             return poke_edit_data
@@ -149,7 +150,7 @@ def pre_check(poke_edit_data: Pokedata):
         model_bool.get(),
         skip_model_insertion,
         update_forme_count,
-    )
+    )  # ty: ignore[unsound-assignment]
 
     return poke_edit_data
 
@@ -182,11 +183,13 @@ def update_non_model_lists(poke_edit_data):
 def update_model_list_for_box(poke_edit_data):
     model_combobox.config(values=poke_edit_data.model_source_list)
 
+
 def update_button_states(poke_edit_data) -> None:
     if is_garcs_loaded(poke_edit_data):
         save_pokelist_csv_button.configure(state=tkinter.NORMAL)
     else:
         save_pokelist_csv_button.configure(state=tkinter.DISABLED)
+
 
 # these are ugly, need to figure out passing event to consolidate
 def base_species_combobox_search(event):
@@ -392,12 +395,16 @@ evolution_load.grid(row=0, column=5, sticky="ew")
 
 # Base Species Selection
 base_species_label = Label(
-    root, text="Select Species",
+    root,
+    text="Select Species",
 )
 base_species_label.grid(row=2, column=0, sticky="nsew")
 
 # Model Selection header
-model_label = Label(root, text="Custom Model",)
+model_label = Label(
+    root,
+    text="Custom Model",
+)
 model_label.grid(row=2, column=2, sticky="nsew")
 # Personal Selection header
 personal_label = Label(root, text="Custom Personal")
@@ -407,7 +414,8 @@ levelup_label = Label(root, text="Custom Levelup")
 levelup_label.grid(row=2, column=4, sticky="nsew")
 # Evolution Selection header
 evolution_label = Label(
-    root, text="Custom Evolution",
+    root,
+    text="Custom Evolution",
 )
 evolution_label.grid(row=2, column=5, sticky="nsew")
 
@@ -444,9 +452,7 @@ base_species_combobox.grid(row=3, column=0, sticky="new")
 base_species_combobox.bind("<KeyRelease>", base_species_combobox_search)
 
 # Number of New Formes
-number_formes_label = Label(
-    root, text="# Formes To Add"
-)
+number_formes_label = Label(root, text="# Formes To Add")
 number_formes_label.grid(row=2, column=1, sticky="nsew")
 
 number_formes_entry = ttk.Spinbox(root, from_=0, to=1000)
@@ -514,13 +520,8 @@ skip_model_checkbutton = Checkbutton(
 skip_model_checkbutton.grid(row=1, column=1, sticky="nsew")
 skip_model_creation_bool.set(True)
 
-log_window_frame = ttk.LabelFrame(root, borderwidth=1, relief="solid", text="Log Messages")
-log_window_frame.grid(row=4, column=6)
-
-log_window = tkinter.scrolledtext.ScrolledText(log_window_frame, state="disabled")
-log_window.configure(font="TkFixedFont")
+log_window = infra.TkLogWidget.TKLogWidget(root)
 log_window.grid(row=1, column=1)
-
 
 text_handler = infra.TKinterTextHandler.TKinterTextHandler(log_window)
 
