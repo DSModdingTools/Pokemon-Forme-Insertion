@@ -281,7 +281,7 @@ coloredlogs.install()
 
 
 # load/save config
-cfg_load = tkinter.Button(
+cfg_load = Button(
     root,
     text="Load CFG & CSV",
     command=lambda: [
@@ -290,29 +290,23 @@ cfg_load = tkinter.Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    height=2,
     width=18,
-    pady=5,
-    padx=7,
 )
 cfg_load.grid(row=0, column=0, sticky="ew")
 
 
-cfg_save = tkinter.Button(
+cfg_save = Button(
     root,
     text="Save CFG & CSV",
     command=lambda: save_game_cfg(poke_edit_data, games_temp.get()),
-    height=2,
     width=18,
-    pady=5,
-    padx=7,
 )
 cfg_save.grid(row=1, column=0, sticky="ew")
 
 
 # CSV file path Selection
 
-load_pokelist_csv_button = tkinter.Button(
+load_pokelist_csv_button = Button(
     root,
     text="(Re)Load CSV",
     command=lambda: [
@@ -320,14 +314,11 @@ load_pokelist_csv_button = tkinter.Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    height=2,
     width=18,
-    pady=5,
-    padx=7,
 )
 load_pokelist_csv_button.grid(row=0, column=6, sticky="ew")
 
-save_pokelist_csv_button = tkinter.Button(
+save_pokelist_csv_button = Button(
     root,
     text="Create/Save CSV",
     command=lambda: [
@@ -337,10 +328,7 @@ save_pokelist_csv_button = tkinter.Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    height=2,
     width=18,
-    pady=5,
-    padx=7,
 )
 save_pokelist_csv_button.grid(row=1, column=6, sticky="ew")
 
@@ -358,22 +346,19 @@ game_select.grid(row=0, column=1, sticky="ew")
 
 
 # load Model
-model_load = tkinter.Button(
+model_load = Button(
     root,
     text="Select Model GARC",
     command=lambda: [
         choose_GARC(poke_edit_data, "Model", games_temp.get()),
         update_model_list_for_box(poke_edit_data),
     ],
-    height=2,
     width=18,
-    pady=5,
-    padx=7,
 )
 model_load.grid(row=0, column=2, sticky="ew")
 
 # load Personal
-personal_load = tkinter.Button(
+personal_load = Button(
     root,
     text="Select Personal GARC",
     command=lambda: [
@@ -381,84 +366,76 @@ personal_load = tkinter.Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    height=2,
     width=18,
-    pady=5,
-    padx=7,
 )
 personal_load.grid(row=0, column=3, sticky="ew")
 
 # load Levelup
-levelup_load = tkinter.Button(
+levelup_load = Button(
     root,
     text="Select Levelup GARC",
     command=lambda: choose_GARC(poke_edit_data, "Levelup", games_temp.get()),
-    height=2,
     width=18,
-    pady=5,
-    padx=7,
 )
 levelup_load.grid(row=0, column=4, sticky="ew")
 
 # load Evolution
-evolution_load = tkinter.Button(
+evolution_load = Button(
     root,
     text="Select Evolution GARC",
     command=lambda: choose_GARC(poke_edit_data, "Evolution", games_temp.get()),
-    height=2,
     width=18,
-    pady=5,
-    padx=7,
 )
 evolution_load.grid(row=0, column=5, sticky="ew")
 
 
 # Base Species Selection
-base_species_label = tkinter.Label(
-    root, text="Select Species", height=2, width=12, padx=4
+base_species_label = Label(
+    root, text="Select Species", width=12,
 )
 base_species_label.grid(row=2, column=0, sticky="nsew")
 
 # Model Selection header
-model_label = tkinter.Label(root, text="Custom Model", height=2, width=12, padx=4)
+model_label = Label(root, text="Custom Model", width=12)
 model_label.grid(row=2, column=2, sticky="nsew")
 # Personal Selection header
-personal_label = tkinter.Label(root, text="Custom Personal", height=2, width=12, padx=4)
+personal_label = Label(root, text="Custom Personal", width=12)
 personal_label.grid(row=2, column=3, sticky="nsew")
 # Levelup Selection header
-levelup_label = tkinter.Label(root, text="Custom Levelup", height=2, width=12, padx=4)
+levelup_label = Label(root, text="Custom Levelup", width=12)
 levelup_label.grid(row=2, column=4, sticky="nsew")
 # Evolution Selection header
-evolution_label = tkinter.Label(
-    root, text="Custom Evolution", height=2, width=12, padx=4
+evolution_label = Label(
+    root, text="Custom Evolution", width=12
 )
 evolution_label.grid(row=2, column=5, sticky="nsew")
 
 
 # checkbuttons for defaults
-model_checkbutton = tkinter.Checkbutton(
+model_checkbutton = Checkbutton(
     root, text="Same as Species", variable=model_bool, onvalue=True, offvalue=False
 )
 model_checkbutton.grid(row=1, column=2, sticky="nsew")
-model_checkbutton.select()
+model_bool.set(True)
 
-personal_checkbutton = tkinter.Checkbutton(
+personal_checkbutton = Checkbutton(
     root, text="Same as Species", variable=personal_bool, onvalue=True, offvalue=False
 )
 personal_checkbutton.grid(row=1, column=3, sticky="nsew")
-personal_checkbutton.select()
+personal_bool.set(True)
 
-levelup_checkbutton = tkinter.Checkbutton(
+levelup_checkbutton = Checkbutton(
     root, text="Same as Species", variable=levelup_bool, onvalue=True, offvalue=False
 )
 levelup_checkbutton.grid(row=1, column=4, sticky="nsew")
-levelup_checkbutton.select()
+levelup_bool.set(True)
+# levelup_checkbutton.select()
 
-evolution_checkbutton = tkinter.Checkbutton(
+evolution_checkbutton = Checkbutton(
     root, text="Same as Species", variable=evolution_bool, onvalue=True, offvalue=False
 )
 evolution_checkbutton.grid(row=1, column=5, sticky="nsew")
-evolution_checkbutton.select()
+evolution_bool.set(True)
 # base species combobox
 base_species_combobox = ttk.Combobox(root, values=[], width=18)
 base_species_combobox.grid(row=3, column=0, sticky="new")
@@ -466,12 +443,12 @@ base_species_combobox.grid(row=3, column=0, sticky="new")
 base_species_combobox.bind("<KeyRelease>", base_species_combobox_search)
 
 # Number of New Formes
-number_formes_label = tkinter.Label(
-    root, text="# Formes To Add", height=2, width=12, padx=4
+number_formes_label = Label(
+    root, text="# Formes To Add", width=12,
 )
 number_formes_label.grid(row=2, column=1, sticky="nsew")
 
-number_formes_entry = Spinbox(root, width=12, from_=0, to=1000)
+number_formes_entry = ttk.Spinbox(root, width=12, from_=0, to=1000)
 number_formes_entry.grid(row=3, column=1, sticky="new")
 
 # model combobox
@@ -501,7 +478,7 @@ evolution_combobox.bind("<KeyRelease>", evolution_combobox_search)
 
 
 # sort
-sort_button = tkinter.Button(
+sort_button = Button(
     root,
     text="Sort Forme List",
     command=lambda: [
@@ -509,15 +486,12 @@ sort_button = tkinter.Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    height=2,
     width=12,
-    pady=5,
-    padx=7,
 )
 sort_button.grid(row=2, column=6, sticky="nsew")
 
 # Run Insertion
-execute_button = tkinter.Button(
+execute_button = Button(
     root,
     text="Insert Forme(s)",
     command=lambda: [
@@ -525,14 +499,11 @@ execute_button = tkinter.Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    height=2,
     width=12,
-    pady=5,
-    padx=7,
 )
 execute_button.grid(row=3, column=6, sticky="nsew")
 
-skip_model_checkbutton = tkinter.Checkbutton(
+skip_model_checkbutton = Checkbutton(
     root,
     text="Initialize Model Files",
     variable=skip_model_creation_bool,
@@ -540,12 +511,12 @@ skip_model_checkbutton = tkinter.Checkbutton(
     offvalue=True,
 )
 skip_model_checkbutton.grid(row=1, column=1, sticky="nsew")
-skip_model_checkbutton.select()
+skip_model_creation_bool.set(True)
 
 log_window_frame = ttk.Frame(root, borderwidth=1, relief="solid")
 log_window_frame.grid(row=4, column=6)
 
-log_window_title = tkinter.Label(log_window_frame, text="Log Messages")
+log_window_title = Label(log_window_frame, text="Log Messages")
 log_window_title.grid(row=1, column=1)
 
 log_window = tkinter.scrolledtext.ScrolledText(log_window_frame, state="disabled")
