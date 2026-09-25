@@ -1,6 +1,5 @@
 import os
 import pathlib
-from typing import Any
 
 
 # read input bytestring as little-endian, return integer

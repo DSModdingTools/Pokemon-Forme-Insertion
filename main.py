@@ -9,8 +9,8 @@ from tkinter.ttk import *
 
 import coloredlogs
 
-import infra.TKinterTextHandler
-import infra.TkLogWidget
+import infra.tk_log_text_handler
+import infra.tk_log_widget
 from forme_importation_actual import *
 from utilities import *
 
@@ -520,10 +520,10 @@ skip_model_checkbutton = Checkbutton(
 skip_model_checkbutton.grid(row=1, column=1, sticky="nsew")
 skip_model_creation_bool.set(True)
 
-log_window = infra.TkLogWidget.TKLogWidget(root)
+log_window = infra.tk_log_widget.TKLogWidget(root)
 log_window.grid(row=1, column=1)
 
-text_handler = infra.TKinterTextHandler.TKinterTextHandler(log_window)
+text_handler = infra.tk_log_text_handler.TKinterTextHandler(log_window)
 
 logger = logging.getLogger(__name__)
 logger.addHandler(text_handler)

@@ -1,4 +1,4 @@
-import logging  # ruff: ignore[N999]
+import logging
 import tkinter
 
 

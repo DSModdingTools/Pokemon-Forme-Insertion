@@ -1,4 +1,4 @@
-from forme_importation_actual import *  # ruff: ignore[N999]
+from forme_importation_actual import *
 from utilities import *
 
 
