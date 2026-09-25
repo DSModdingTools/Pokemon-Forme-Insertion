@@ -841,7 +841,7 @@ def user_prompt_write_CSV(poke_edit_data, target, gamesassert=""):
     if gamesassert != "":
         poke_edit_data.game = gamesassert
 
-    if poke_edit_data.model == []:
+    if not poke_edit_data.model:
         print("Please load the GARCs before creating CSV")
         return poke_edit_data
 
