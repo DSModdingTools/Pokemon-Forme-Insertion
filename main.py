@@ -13,7 +13,7 @@ from forme_importation_actual import *
 from utilities import *
 
 
-def pre_check(poke_edit_data):
+def pre_check(poke_edit_data: Pokedata):
 
     # get index of base species
     try:
@@ -290,7 +290,6 @@ cfg_load = Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    width=18,
 )
 cfg_load.grid(row=0, column=0, sticky="ew")
 
@@ -299,7 +298,6 @@ cfg_save = Button(
     root,
     text="Save CFG & CSV",
     command=lambda: save_game_cfg(poke_edit_data, games_temp.get()),
-    width=18,
 )
 cfg_save.grid(row=1, column=0, sticky="ew")
 
@@ -314,7 +312,6 @@ load_pokelist_csv_button = Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    width=18,
 )
 load_pokelist_csv_button.grid(row=0, column=6, sticky="ew")
 
@@ -328,7 +325,6 @@ save_pokelist_csv_button = Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    width=18,
 )
 save_pokelist_csv_button.grid(row=1, column=6, sticky="ew")
 
@@ -353,7 +349,6 @@ model_load = Button(
         choose_GARC(poke_edit_data, "Model", games_temp.get()),
         update_model_list_for_box(poke_edit_data),
     ],
-    width=18,
 )
 model_load.grid(row=0, column=2, sticky="ew")
 
@@ -366,7 +361,6 @@ personal_load = Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    width=18,
 )
 personal_load.grid(row=0, column=3, sticky="ew")
 
@@ -375,7 +369,6 @@ levelup_load = Button(
     root,
     text="Select Levelup GARC",
     command=lambda: choose_GARC(poke_edit_data, "Levelup", games_temp.get()),
-    width=18,
 )
 levelup_load.grid(row=0, column=4, sticky="ew")
 
@@ -384,29 +377,28 @@ evolution_load = Button(
     root,
     text="Select Evolution GARC",
     command=lambda: choose_GARC(poke_edit_data, "Evolution", games_temp.get()),
-    width=18,
 )
 evolution_load.grid(row=0, column=5, sticky="ew")
 
 
 # Base Species Selection
 base_species_label = Label(
-    root, text="Select Species", width=12,
+    root, text="Select Species",
 )
 base_species_label.grid(row=2, column=0, sticky="nsew")
 
 # Model Selection header
-model_label = Label(root, text="Custom Model", width=12)
+model_label = Label(root, text="Custom Model",)
 model_label.grid(row=2, column=2, sticky="nsew")
 # Personal Selection header
-personal_label = Label(root, text="Custom Personal", width=12)
+personal_label = Label(root, text="Custom Personal")
 personal_label.grid(row=2, column=3, sticky="nsew")
 # Levelup Selection header
-levelup_label = Label(root, text="Custom Levelup", width=12)
+levelup_label = Label(root, text="Custom Levelup")
 levelup_label.grid(row=2, column=4, sticky="nsew")
 # Evolution Selection header
 evolution_label = Label(
-    root, text="Custom Evolution", width=12
+    root, text="Custom Evolution",
 )
 evolution_label.grid(row=2, column=5, sticky="nsew")
 
@@ -437,41 +429,41 @@ evolution_checkbutton = Checkbutton(
 evolution_checkbutton.grid(row=1, column=5, sticky="nsew")
 evolution_bool.set(True)
 # base species combobox
-base_species_combobox = ttk.Combobox(root, values=[], width=18)
+base_species_combobox = ttk.Combobox(root, values=[])
 base_species_combobox.grid(row=3, column=0, sticky="new")
 
 base_species_combobox.bind("<KeyRelease>", base_species_combobox_search)
 
 # Number of New Formes
 number_formes_label = Label(
-    root, text="# Formes To Add", width=12,
+    root, text="# Formes To Add"
 )
 number_formes_label.grid(row=2, column=1, sticky="nsew")
 
-number_formes_entry = ttk.Spinbox(root, width=12, from_=0, to=1000)
+number_formes_entry = ttk.Spinbox(root, from_=0, to=1000)
 number_formes_entry.grid(row=3, column=1, sticky="new")
 
 # model combobox
-model_combobox = ttk.Combobox(root, values=[], width=18)
+model_combobox = ttk.Combobox(root, values=[])
 model_combobox.grid(row=3, column=2, sticky="new")
 
 model_combobox.bind("<KeyRelease>", model_combobox_search)
 
 # personal combobox
-personal_combobox = ttk.Combobox(root, values=[], width=18)
+personal_combobox = ttk.Combobox(root, values=[])
 personal_combobox.grid(row=3, column=3, sticky="new")
 
 personal_combobox.bind("<KeyRelease>", personal_combobox_search)
 
 # levelup combobox
-levelup_combobox = ttk.Combobox(root, values=[], width=18)
+levelup_combobox = ttk.Combobox(root, values=[])
 levelup_combobox.grid(row=3, column=4, sticky="new")
 
 levelup_combobox.bind("<KeyRelease>", levelup_combobox_search)
 
 
 # evolution combobox
-evolution_combobox = ttk.Combobox(root, width=18)
+evolution_combobox = ttk.Combobox(root)
 evolution_combobox.grid(row=3, column=5, sticky="new")
 
 evolution_combobox.bind("<KeyRelease>", evolution_combobox_search)
@@ -486,7 +478,6 @@ sort_button = Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    width=12,
 )
 sort_button.grid(row=2, column=6, sticky="nsew")
 
@@ -499,7 +490,6 @@ execute_button = Button(
         update_non_model_lists(poke_edit_data),
         update_model_list_for_box(poke_edit_data),
     ],
-    width=12,
 )
 execute_button.grid(row=3, column=6, sticky="nsew")
 
