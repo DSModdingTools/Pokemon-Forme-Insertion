@@ -468,7 +468,7 @@ base_species_combobox.bind("<KeyRelease>", base_species_combobox_search)
 number_formes_label = Label(root, text="# Formes To Add", height=2, width=12, padx=4)
 number_formes_label.grid(row=2, column=1, sticky="nsew")
 
-number_formes_entry = Entry(root, width=12)
+number_formes_entry = Spinbox(root, width=12, from_=0, to=1000)
 number_formes_entry.grid(row=3, column=1, sticky="new")
 
 # model combobox
