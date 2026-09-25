@@ -4,6 +4,7 @@ import logging.config
 import tkinter.scrolledtext
 from tkinter import *
 from tkinter import ttk
+from tkinter.ttk import *
 
 import coloredlogs
 
@@ -17,14 +18,7 @@ def pre_check(poke_edit_data):
     # get index of base species
     try:
         title = base_species_combobox.get().title()
-        base_form_index = (
-            int(
-                poke_edit_data.base_species_list.index(
-                    title
-                )
-            )
-            + 1
-        )
+        base_form_index = int(poke_edit_data.base_species_list.index(title)) + 1
     except Exception:
         logger.exception(
             f"Error at base species '{base_species_combobox.get()}' not found."
@@ -57,7 +51,9 @@ def pre_check(poke_edit_data):
                 poke_edit_data.master_formes_list.index(personal_combobox.get().title())
             )
     except Exception:
-        logger.exception("Error at personal, '%s' %s", personal_combobox.get(), "not found.")
+        logger.exception(
+            "Error at personal, '%s' %s", personal_combobox.get(), "not found."
+        )
         return None
 
     # levelup
@@ -70,7 +66,9 @@ def pre_check(poke_edit_data):
                 poke_edit_data.master_formes_list.index(levelup_combobox.get().title())
             )
     except Exception:
-        logger.exception("Error at levelup '%s' %s,", levelup_combobox.get(), "not found.")
+        logger.exception(
+            "Error at levelup '%s' %s,", levelup_combobox.get(), "not found."
+        )
         return None
 
     # evolution
@@ -85,7 +83,9 @@ def pre_check(poke_edit_data):
                 )
             )
     except Exception:
-        logger.exception("Error at evolution, '%s' %s", evolution_combobox.get(), "not found.")
+        logger.exception(
+            "Error at evolution, '%s' %s", evolution_combobox.get(), "not found."
+        )
         return None
 
     # if skip_model_creation_bool is true, checkbox is unclicked, and we want to try skipping model insertion. If it's false (as per default), just set to false, no need for further check
@@ -260,9 +260,7 @@ parser = argparse.ArgumentParser(
     add_help=True,
     allow_abbrev=False,
 )
-parser.add_argument('--version',
-                    action='version',
-                    version=f"%(prog)s {version}")
+parser.add_argument("--version", action="version", version=f"%(prog)s {version}")
 parser.add_argument(
     "-v", "--verbose", help="increase output verbosity", action="store_true"
 )
@@ -283,7 +281,7 @@ coloredlogs.install()
 
 
 # load/save config
-cfg_load = Button(
+cfg_load = tkinter.Button(
     root,
     text="Load CFG & CSV",
     command=lambda: [
@@ -300,7 +298,7 @@ cfg_load = Button(
 cfg_load.grid(row=0, column=0, sticky="ew")
 
 
-cfg_save = Button(
+cfg_save = tkinter.Button(
     root,
     text="Save CFG & CSV",
     command=lambda: save_game_cfg(poke_edit_data, games_temp.get()),
@@ -314,7 +312,7 @@ cfg_save.grid(row=1, column=0, sticky="ew")
 
 # CSV file path Selection
 
-load_pokelist_csv_button = Button(
+load_pokelist_csv_button = tkinter.Button(
     root,
     text="(Re)Load CSV",
     command=lambda: [
@@ -329,7 +327,7 @@ load_pokelist_csv_button = Button(
 )
 load_pokelist_csv_button.grid(row=0, column=6, sticky="ew")
 
-save_pokelist_csv_button = Button(
+save_pokelist_csv_button = tkinter.Button(
     root,
     text="Create/Save CSV",
     command=lambda: [
@@ -360,7 +358,7 @@ game_select.grid(row=0, column=1, sticky="ew")
 
 
 # load Model
-model_load = Button(
+model_load = tkinter.Button(
     root,
     text="Select Model GARC",
     command=lambda: [
@@ -375,7 +373,7 @@ model_load = Button(
 model_load.grid(row=0, column=2, sticky="ew")
 
 # load Personal
-personal_load = Button(
+personal_load = tkinter.Button(
     root,
     text="Select Personal GARC",
     command=lambda: [
@@ -391,7 +389,7 @@ personal_load = Button(
 personal_load.grid(row=0, column=3, sticky="ew")
 
 # load Levelup
-levelup_load = Button(
+levelup_load = tkinter.Button(
     root,
     text="Select Levelup GARC",
     command=lambda: choose_GARC(poke_edit_data, "Levelup", games_temp.get()),
@@ -403,7 +401,7 @@ levelup_load = Button(
 levelup_load.grid(row=0, column=4, sticky="ew")
 
 # load Evolution
-evolution_load = Button(
+evolution_load = tkinter.Button(
     root,
     text="Select Evolution GARC",
     command=lambda: choose_GARC(poke_edit_data, "Evolution", games_temp.get()),
@@ -416,43 +414,47 @@ evolution_load.grid(row=0, column=5, sticky="ew")
 
 
 # Base Species Selection
-base_species_label = Label(root, text="Select Species", height=2, width=12, padx=4)
+base_species_label = tkinter.Label(
+    root, text="Select Species", height=2, width=12, padx=4
+)
 base_species_label.grid(row=2, column=0, sticky="nsew")
 
 # Model Selection header
-model_label = Label(root, text="Custom Model", height=2, width=12, padx=4)
+model_label = tkinter.Label(root, text="Custom Model", height=2, width=12, padx=4)
 model_label.grid(row=2, column=2, sticky="nsew")
 # Personal Selection header
-personal_label = Label(root, text="Custom Personal", height=2, width=12, padx=4)
+personal_label = tkinter.Label(root, text="Custom Personal", height=2, width=12, padx=4)
 personal_label.grid(row=2, column=3, sticky="nsew")
 # Levelup Selection header
-levelup_label = Label(root, text="Custom Levelup", height=2, width=12, padx=4)
+levelup_label = tkinter.Label(root, text="Custom Levelup", height=2, width=12, padx=4)
 levelup_label.grid(row=2, column=4, sticky="nsew")
 # Evolution Selection header
-evolution_label = Label(root, text="Custom Evolution", height=2, width=12, padx=4)
+evolution_label = tkinter.Label(
+    root, text="Custom Evolution", height=2, width=12, padx=4
+)
 evolution_label.grid(row=2, column=5, sticky="nsew")
 
 
 # checkbuttons for defaults
-model_checkbutton = Checkbutton(
+model_checkbutton = tkinter.Checkbutton(
     root, text="Same as Species", variable=model_bool, onvalue=True, offvalue=False
 )
 model_checkbutton.grid(row=1, column=2, sticky="nsew")
 model_checkbutton.select()
 
-personal_checkbutton = Checkbutton(
+personal_checkbutton = tkinter.Checkbutton(
     root, text="Same as Species", variable=personal_bool, onvalue=True, offvalue=False
 )
 personal_checkbutton.grid(row=1, column=3, sticky="nsew")
 personal_checkbutton.select()
 
-levelup_checkbutton = Checkbutton(
+levelup_checkbutton = tkinter.Checkbutton(
     root, text="Same as Species", variable=levelup_bool, onvalue=True, offvalue=False
 )
 levelup_checkbutton.grid(row=1, column=4, sticky="nsew")
 levelup_checkbutton.select()
 
-evolution_checkbutton = Checkbutton(
+evolution_checkbutton = tkinter.Checkbutton(
     root, text="Same as Species", variable=evolution_bool, onvalue=True, offvalue=False
 )
 evolution_checkbutton.grid(row=1, column=5, sticky="nsew")
@@ -464,7 +466,9 @@ base_species_combobox.grid(row=3, column=0, sticky="new")
 base_species_combobox.bind("<KeyRelease>", base_species_combobox_search)
 
 # Number of New Formes
-number_formes_label = Label(root, text="# Formes To Add", height=2, width=12, padx=4)
+number_formes_label = tkinter.Label(
+    root, text="# Formes To Add", height=2, width=12, padx=4
+)
 number_formes_label.grid(row=2, column=1, sticky="nsew")
 
 number_formes_entry = Spinbox(root, width=12, from_=0, to=1000)
@@ -497,7 +501,7 @@ evolution_combobox.bind("<KeyRelease>", evolution_combobox_search)
 
 
 # sort
-sort_button = Button(
+sort_button = tkinter.Button(
     root,
     text="Sort Forme List",
     command=lambda: [
@@ -513,7 +517,7 @@ sort_button = Button(
 sort_button.grid(row=2, column=6, sticky="nsew")
 
 # Run Insertion
-execute_button = Button(
+execute_button = tkinter.Button(
     root,
     text="Insert Forme(s)",
     command=lambda: [
@@ -528,7 +532,7 @@ execute_button = Button(
 )
 execute_button.grid(row=3, column=6, sticky="nsew")
 
-skip_model_checkbutton = Checkbutton(
+skip_model_checkbutton = tkinter.Checkbutton(
     root,
     text="Initialize Model Files",
     variable=skip_model_creation_bool,
