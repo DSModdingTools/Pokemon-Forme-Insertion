@@ -105,7 +105,7 @@ def reconstruct_GARC(poke_edit_data, GARC_name):
             # merges with header for output
             out_file = [poke_edit_data.model_header] + poke_edit_data.model
 
-    file_count = len(out_file)
+    file_count = len(out_file)  # ty: ignore[possibly-unresolved-reference]
 
     temp = [0x0] * 0x1C
     FAT0_offset = 0
@@ -195,7 +195,7 @@ def reconstruct_GARC(poke_edit_data, GARC_name):
     offset = 0
     biggest_size = 0
     biggest_size_padding = 0
-    for file in out_file:
+    for file in out_file:  # ty: ignore[possibly-unresolved-reference]
         # padding
         temp[pointer : pointer + 4] = [0x01, 0x00, 0x00, 0x00]
 
@@ -269,7 +269,7 @@ def save_GARC(poke_edit_data, GARC_name: str):
         case "model":
             file_path = poke_edit_data.model_path
 
-    with open(file_path, "w+b") as f:
+    with open(file_path, "w+b") as f:  # ty: ignore[possibly-unresolved-reference]
         f.write(bytes(temp))
 
 

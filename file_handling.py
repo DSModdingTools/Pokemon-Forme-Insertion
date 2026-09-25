@@ -271,14 +271,14 @@ def update_species_list(poke_edit_data, overwrite_from_default=False):
         except Exception as e:  # ruff: ignore[BLE001]
             print("Possible error detected", e)
         # if more than 1 AND forme pointer not 0, need to update those names in the array
-        if forme_count > 1 and forme_pointer != 0:
+        if forme_count > 1 and forme_pointer != 0:  # ty: ignore[possibly-unresolved-reference]
             # this is the internal index number of the first alt forme, less 1 because we're shifted over one
 
             # print(index, forme_count, forme_pointer)
             # first forme in forme count is the base, need to do 1 less than that. We call each forme <base species name> <alt forme count> (e.g. Mega Blastoise is "Blastoise 1")
             for x in range(forme_count - 1):
                 # print(index, forme_count, forme_pointer, x)
-                poke_edit_data.master_formes_list[forme_pointer + x] = (
+                poke_edit_data.master_formes_list[forme_pointer + x] = (  # ty: ignore[possibly-unresolved-reference]
                     poke_edit_data.base_species_list[index] + " " + str(x + 1)
                 )
     # print(poke_edit_data.master_formes_list)

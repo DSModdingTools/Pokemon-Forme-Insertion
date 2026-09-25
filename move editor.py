@@ -120,8 +120,8 @@ def import_levelup(move_edit_data, move_list, pokemon_list):
                     print("Unable to access the entered move name, something is wrong.")
 
             # move index, low byte then high
-            temp_file.append(temp_index % 0x100)
-            temp_file.append(temp_index >> 8)
+            temp_file.append(temp_index % 0x100)  # ty: ignore[possibly-unresolved-reference]
+            temp_file.append(temp_index >> 8)  # ty: ignore[possibly-unresolved-reference]
             # level
             if int(line[2]) < 0 or int(line[2]) > 100:
                 print("Warning, level at line", line_number, "is", line[2], ".\n")

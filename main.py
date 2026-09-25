@@ -16,10 +16,11 @@ def pre_check(poke_edit_data):
 
     # get index of base species
     try:
+        title = base_species_combobox.get().title()
         base_form_index = (
             int(
                 poke_edit_data.base_species_list.index(
-                    base_species_combobox.get().title()
+                    title
                 )
             )
             + 1
@@ -458,7 +459,7 @@ evolution_checkbutton = Checkbutton(
 evolution_checkbutton.grid(row=1, column=5, sticky="nsew")
 evolution_checkbutton.select()
 # base species combobox
-base_species_combobox = ttk.Combobox(root, value=[], width=18)  # ty: ignore[unknown-argument]
+base_species_combobox = ttk.Combobox(root, values=[], width=18)
 base_species_combobox.grid(row=3, column=0, sticky="new")
 
 base_species_combobox.bind("<KeyRelease>", base_species_combobox_search)
@@ -471,19 +472,19 @@ number_formes_entry = Entry(root, width=12)
 number_formes_entry.grid(row=3, column=1, sticky="new")
 
 # model combobox
-model_combobox = ttk.Combobox(root, value=[], width=18)  # ty: ignore[unknown-argument]
+model_combobox = ttk.Combobox(root, values=[], width=18)
 model_combobox.grid(row=3, column=2, sticky="new")
 
 model_combobox.bind("<KeyRelease>", model_combobox_search)
 
 # personal combobox
-personal_combobox = ttk.Combobox(root, value=[], width=18)  # ty: ignore[unknown-argument]
+personal_combobox = ttk.Combobox(root, values=[], width=18)
 personal_combobox.grid(row=3, column=3, sticky="new")
 
 personal_combobox.bind("<KeyRelease>", personal_combobox_search)
 
 # levelup combobox
-levelup_combobox = ttk.Combobox(root, value=[], width=18)  # ty: ignore[unknown-argument]
+levelup_combobox = ttk.Combobox(root, values=[], width=18)
 levelup_combobox.grid(row=3, column=4, sticky="new")
 
 levelup_combobox.bind("<KeyRelease>", levelup_combobox_search)
@@ -548,7 +549,7 @@ log_window.grid(row=5, column=6)
 
 text_handler = infra.TKinterTextHandler.TKinterTextHandler(log_window)
 
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 logger.addHandler(text_handler)
 
 if __name__ == "__main__":
