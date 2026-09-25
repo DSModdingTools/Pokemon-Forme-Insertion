@@ -513,15 +513,12 @@ skip_model_checkbutton = Checkbutton(
 skip_model_checkbutton.grid(row=1, column=1, sticky="nsew")
 skip_model_creation_bool.set(True)
 
-log_window_frame = ttk.Frame(root, borderwidth=1, relief="solid")
+log_window_frame = ttk.LabelFrame(root, borderwidth=1, relief="solid", text="Log Messages")
 log_window_frame.grid(row=4, column=6)
-
-log_window_title = Label(log_window_frame, text="Log Messages")
-log_window_title.grid(row=1, column=1)
 
 log_window = tkinter.scrolledtext.ScrolledText(log_window_frame, state="disabled")
 log_window.configure(font="TkFixedFont")
-log_window.grid(row=2, column=1)
+log_window.grid(row=1, column=1)
 
 
 text_handler = infra.TKinterTextHandler.TKinterTextHandler(log_window)
