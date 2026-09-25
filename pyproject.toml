@@ -8,9 +8,6 @@ dependencies = [
 ]
 license-files = ["LICENSE"]
 
-[project.gui-scripts]
-formeinserter = "main.py"
-
 [dependency-groups]
 dev = [
     "coverage>=7.16.1",
