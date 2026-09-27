@@ -37,13 +37,13 @@ def export_levelup(move_edit_data, move_list, pokemon_list):
                             [index, pokemon_list[index], level, move_list[move_index]]
                         )
                     except Exception as e:  # ruff: ignore[BLE001]
-                        print(e)
+                        print(e)  # noqa: T201
                         if index >= len(pokemon_list):
-                            print(
+                            print(  # noqa: T201
                                 "You might be using the wrong generation, or have added additional Pokemon/formes. In the latter case, update the appropriate CSV."
                             )
                         if move_index >= len(move_list):
-                            print(
+                            print(  # noqa: T201
                                 "You might have added additional moves, in that case, please add them in the appropriate place in move_list.csv"
                             )
 
@@ -89,7 +89,7 @@ def import_levelup(move_edit_data, move_list, pokemon_list):
         else:
             # if went down, something is very wrong, abort
             if int(line[0]) < int(last_personal):
-                print(
+                print(  # noqa: T201
                     "Serious error at line",
                     line_number + 1,
                     "index numbers out of order, please check the line, you might need to sort the .csv file by index number.",
@@ -110,21 +110,21 @@ def import_levelup(move_edit_data, move_list, pokemon_list):
             try:
                 temp_index = move_list.index(line[3].lower())
             except Exception as e:  # ruff: ignore[BLE001]
-                print("Error at line", line_number + 1, "Python error:", e)
+                print("Error at line", line_number + 1, "Python error:", e)  # noqa: T201
                 try:
-                    print(
+                    print(  # noqa: T201
                         "Move entered as", line[3], "not found. Please check spelling"
                     )
                 except Exception as e:  # ruff: ignore[BLE001]
-                    print("Error 2:", e)
-                    print("Unable to access the entered move name, something is wrong.")
+                    print("Error 2:", e)  # noqa: T201
+                    print("Unable to access the entered move name, something is wrong.")  # noqa: T201
 
             # move index, low byte then high
             temp_file.append(temp_index % 0x100)  # ty: ignore[possibly-unresolved-reference]
             temp_file.append(temp_index >> 8)  # ty: ignore[possibly-unresolved-reference]
             # level
             if int(line[2]) < 0 or int(line[2]) > 100:
-                print("Warning, level at line", line_number, "is", line[2], ".\n")
+                print("Warning, level at line", line_number, "is", line[2], ".\n")  # noqa: T201
             temp_file.append(int(line[2]))
             # unused
             temp_file.append(0x00)
@@ -156,7 +156,7 @@ def main():
             move_edit_data.game = temp
             break
         else:
-            print(temp, "is not valid\n\n")
+            print(temp, "is not valid\n\n")  # noqa: T201
 
     pokemon_list_path = os.path.join(
         current_directory, "pokemon_list_" + move_edit_data.game + ".csv"
@@ -174,7 +174,7 @@ def main():
                 move_list.append(line[1])
             else:
                 break
-    print("Loaded Move Name List")
+    print("Loaded Move Name List")  # noqa: T201
 
     # load pokemon names
     with open(pokemon_list_path, newline="", encoding="utf-8-sig") as csvfile:
@@ -188,7 +188,7 @@ def main():
                 pokemon_list.append(line[1])
             else:
                 break
-    print("Loaded Pokemon Name List")
+    print("Loaded Pokemon Name List")  # noqa: T201
 
     while True:
         # choose extract or rebuild
@@ -198,7 +198,7 @@ def main():
                 action_choice = temp
                 break
             else:
-                print(temp, "is not valid\\nn")
+                print(temp, "is not valid\\nn")  # noqa: T201
 
         match action_choice:
             case "e":

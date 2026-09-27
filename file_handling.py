@@ -95,7 +95,7 @@ def update_csv_after_changes(
                 first_missing_personal_line = indices
                 break
         if first_missing_personal_line == 0:
-            print("Error, no matching Pokemon found somehow")
+            print("Error, no matching Pokemon found somehow")  # noqa: T201
 
         # update with temporary personal index number so the sorter can handle it
 
@@ -162,11 +162,11 @@ def update_model_list(poke_edit_data):
     # if we haven't loaded the Personal file yet, we will need to do all the rest later
     if len(poke_edit_data.personal) == 0:
         poke_edit_data.run_model_later = True
-        print("Will initialize Model list after the Personal list")
+        print("Will initialize Model list after the Personal list")  # noqa: T201
         return
     else:
         poke_edit_data.run_model_later = False
-        print("Initializing default Model list")
+        print("Initializing default Model list")  # noqa: T201
 
     model_temp_list = []
 
@@ -213,7 +213,7 @@ def update_model_list(poke_edit_data):
 def update_species_list(poke_edit_data, overwrite_from_default=False):
 
     if overwrite_from_default or (len(poke_edit_data.master_list_csv) < 100):
-        print("Initializing default Species list")
+        print("Initializing default Species list")  # noqa: T201
         # set base species list based on which game we're dealing with
         # grab the species name from the master list
         if poke_edit_data.game == "USUM":
@@ -244,7 +244,7 @@ def update_species_list(poke_edit_data, overwrite_from_default=False):
 
     personal_index_count = len(poke_edit_data.personal)
 
-    print("Initializing default Formes list")
+    print("Initializing default Formes list")  # noqa: T201
     # adds (total number of pokemon personal files) - (total number of base species) spots to the end of the array
     for x in range(personal_index_count - poke_edit_data.max_species_index - 1):
         poke_edit_data.master_formes_list.append("")
@@ -269,7 +269,7 @@ def update_species_list(poke_edit_data, overwrite_from_default=False):
         try:
             forme_pointer = from_little_bytes_int(file[0x1C:0x1E])
         except Exception as e:  # ruff: ignore[BLE001]
-            print("Possible error detected", e)
+            print("Possible error detected", e)  # noqa: T201
         # if more than 1 AND forme pointer not 0, need to update those names in the array
         if forme_count > 1 and forme_pointer != 0:  # ty: ignore[possibly-unresolved-reference]
             # this is the internal index number of the first alt forme, less 1 because we're shifted over one

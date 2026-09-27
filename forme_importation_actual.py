@@ -11,12 +11,12 @@ def save_and_refresh_GARCs(poke_edit_data):
     save_GARC(poke_edit_data, "evolution")
     save_GARC(poke_edit_data, "levelup")
     save_GARC(poke_edit_data, "model")
-    print("GARC files written\n")
+    print("GARC files written\n")  # noqa: T201
 
     poke_edit_data.run_model_later = False
     poke_edit_data = update_model_list(poke_edit_data)
     poke_edit_data = update_species_list(poke_edit_data)
-    print("Internal tables updated with changes" + "\n")
+    print("Internal tables updated with changes" + "\n")  # noqa: T201
     return poke_edit_data
 
 
@@ -35,7 +35,7 @@ def resort_file_structure(poke_edit_data):
     for row_number, row in enumerate(poke_edit_data.master_list_csv):
         # ensure that we are looking at a real personal entry
         if isinstance(row[2], int) and isinstance(row[3], int):
-            print(row[3])
+            print(row[3])  # noqa: T201
 
             # if base forme index == personal index, look for any alt formes in personal, and write them to next slots. then update row[3] for those Pokemon
             if row[2] == row[3]:
@@ -137,7 +137,7 @@ def check_adding_without_models_works(poke_edit_data, base_form_index, new_forme
             poke_edit_data.model_header[4 * (base_form_index - 1) + 3] = 5
         return (poke_edit_data, True, update_forme_count)
     else:
-        print(
+        print(  # noqa: T201
             "There are "
             + str(temp_model_count)
             + " model files and "
@@ -162,7 +162,7 @@ def add_new_forme_execute(
 ):
 
     if not (poke_edit_data.sorted):
-        print("Detected unsorted files, this might take a while.")
+        print("Detected unsorted files, this might take a while.")  # noqa: T201
         poke_edit_data = resort_file_structure(poke_edit_data)
         return poke_edit_data
 
@@ -175,10 +175,10 @@ def add_new_forme_execute(
         == len(poke_edit_data.levelup)
         == len(poke_edit_data.personal)
     ):
-        print("Mismatch in file counts:\n")
-        print("Personal has:", len(poke_edit_data.personal), "files")
-        print("Levelup has:", len(poke_edit_data.levelup), "files")
-        print("Evolution has:", len(poke_edit_data.evolution), "files")
+        print("Mismatch in file counts:\n")  # noqa: T201
+        print("Personal has:", len(poke_edit_data.personal), "files")  # noqa: T201
+        print("Levelup has:", len(poke_edit_data.levelup), "files")  # noqa: T201
+        print("Evolution has:", len(poke_edit_data.evolution), "files")  # noqa: T201
         return poke_edit_data
 
     # This will hold the current file numbers of existing formes
@@ -186,7 +186,7 @@ def add_new_forme_execute(
 
     total_formes = new_forme_count
 
-    print("\n\nUpdating existing files for species " + str(base_form_index))
+    print("\n\nUpdating existing files for species " + str(base_form_index))  # noqa: T201
 
     # pre-insertion number of formes
     old_forme_count = poke_edit_data.personal[base_form_index][0x20]
@@ -216,7 +216,7 @@ def add_new_forme_execute(
 
     # we now have the file addresses of all the places we need to update for all but the model file
 
-    print("Copying new game data")
+    print("Copying new game data")  # noqa: T201
     # now initialize the newly added formes
 
     cur_forme_pointer = 0
@@ -286,7 +286,7 @@ def add_new_forme_execute(
             poke_edit_data, base_form_index, new_forme_count, start_location, True
         )
     else:
-        print("Copying new model data")
+        print("Copying new model data")  # noqa: T201
 
         # create new sets of model files
         # don't forget model index starts from 0 unlike everything else
@@ -348,7 +348,7 @@ def add_new_forme_execute(
             for y in reversed(temp):
                 poke_edit_data.model.insert(model_dest_file, y)
 
-        print("Updating model header")
+        print("Updating model header")  # noqa: T201
 
         # Now need to update model header
         """
@@ -412,7 +412,7 @@ def add_new_forme_execute(
             else:
                 break
 
-        print(f"Byte Table starts at {hex(start_of_byte_flag_table)}")
+        print(f"Byte Table starts at {hex(start_of_byte_flag_table)}")  # noqa: T201
 
         # get the source model flag
         model_source_flag_offset = 2 * model_source_index + start_of_byte_flag_table
@@ -422,7 +422,7 @@ def add_new_forme_execute(
         ]
 
         if model_source_flags != [0x0, 0x0]:
-            print(
+            print(  # noqa: T201
                 f"Warning, the model you chose has byeflags of {hex(model_source_flags[0])}, {hex(model_source_flags[1])}, this might result in undesired behavior."
             )
 
@@ -439,7 +439,7 @@ def add_new_forme_execute(
             poke_edit_data.model_header.insert(
                 target_bitflag_offset, model_source_flags[0]
             )
-        print("Model header updated")
+        print("Model header updated")  # noqa: T201
 
         # update csv with new model indices & also the model type table
         poke_edit_data = update_csv_after_changes(
@@ -451,7 +451,7 @@ def add_new_forme_execute(
             model_source_flags,
         )
 
-    print(
+    print(  # noqa: T201
         "Writing updated GARCs (Updated the Model GARC will take a few minutes)" + "\n"
     )
 
@@ -460,14 +460,14 @@ def add_new_forme_execute(
     try:
         poke_edit_data = write_CSV(poke_edit_data)
     except:  # ruff: ignore[E722]
-        print("Please close your Pokemon Names and Files CSV if it is open")
+        print("Please close your Pokemon Names and Files CSV if it is open")  # noqa: T201
         poke_edit_data.csv_pokemon_list_path = asksaveasfile(
             title="Select Pokemon Names and Files CSV"
         )
         write_CSV(poke_edit_data)
-    print("Pokemon Names and Files CSV updated" + "\n")
+    print("Pokemon Names and Files CSV updated" + "\n")  # noqa: T201
 
     # poke_edit_data = load_names_from_CSV(poke_edit_data)
 
-    print("Insertion complete!\n")
+    print("Insertion complete!\n")  # noqa: T201
     return poke_edit_data
