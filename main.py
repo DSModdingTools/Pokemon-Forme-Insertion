@@ -1,4 +1,3 @@
-import argparse
 import logging
 import logging.config
 import tkinter.constants
@@ -9,6 +8,7 @@ from tkinter.ttk import *
 
 import coloredlogs
 
+import cli.parser
 import infra.tk_log_text_handler
 import infra.tk_log_widget
 import ui.root_window
@@ -265,29 +265,6 @@ for x in range(5):
 for y in range(7):
     root.columnconfigure(y, weight=1)
 
-parser = argparse.ArgumentParser(
-    add_help=True,
-    allow_abbrev=False,
-)
-parser.add_argument("--version", action="version", version=f"%(prog)s {version}")
-parser.add_argument(
-    "-v", "--verbose", help="increase output verbosity", action="store_true"
-)
-parser.add_argument(
-    "--logserver", dest="log_server_port", type=int, metavar="{1..65535}"
-)
-args = parser.parse_args()
-if args.verbose:
-    logging.basicConfig(level=logging.DEBUG)
-else:
-    logging.basicConfig(level=logging.INFO)
-
-if args.log_server_port:
-    t = logging.config.listen(args.log_server_port)  # ty: ignore[possibly-missing-submodule]
-    t.start()
-
-coloredlogs.install()
-
 
 # load/save config
 cfg_load = Button(
@@ -530,5 +507,23 @@ logger.addHandler(text_handler)
 
 update_button_states(poke_edit_data)
 
-if __name__ == "__main__":
+
+def true_main():
+    args = cli.parser.get_parsed_arguments()
+    if args.verbose:
+        logging.basicConfig(level=logging.DEBUG)
+    else:
+        logging.basicConfig(level=logging.INFO)
+
+    coloredlogs.install()
+
+    if args.log_server_port:
+        t = logging.config.listen(args.log_server_port)  # ty: ignore[possibly-missing-submodule]
+        t.start()
+
+    ui.root_window.configure_root_window(root)
     root.mainloop()
+
+
+if __name__ == "__main__":
+    true_main()

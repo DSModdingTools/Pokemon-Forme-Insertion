@@ -5,6 +5,9 @@ from my_constants import version
 
 def create_root_window() -> Tk:
     root = Tk()
+    return root
+
+
+def configure_root_window(root: Tk):
     root.title("Pokemon Forme Insertion V." + version)
     root.state("zoomed")
-    return root
