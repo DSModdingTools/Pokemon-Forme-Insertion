@@ -1,20 +1,32 @@
-name: Package Windows Application with PyInstaller
+name: Release Application
 
 permissions:
-  contents: read
-  pull-requests: write
+  contents: write
 
 on:
   push:
     branches: [ main ]
-  pull_request:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: windows-latest
+  prep_for_release:
+    runs-on: ubuntu-latest
     steps:
+      - name: Bump Version
+        run: |
+#          uv version --bump=patch
+#          git commit -am "[build] bump minor version"
+#          version="$(uv version --short)"
+#          tagname="release/$version"
+#          git tag "$tagname"
 
+  build_for_release:
+    strategy:
+      matrix:
+        os: [ macos-latest, windows-latest ]
+    runs-on: ${{ matrix.os }}
+
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v7
 
@@ -25,12 +37,18 @@ jobs:
       - name: Sync UV
         run: uv sync --locked --all-extras --dev
 
-      - name: Package Application with PyInstaller
+      - name: Build
         run: |
-          uv run pyinstaller -y --onefile main.py
+          uv run pyinstaller -y --onefile -n "main.${{ matrix.os }}.exe" main.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
           name: main-windows
-          path: dist/main.exe
+          path: "dist/main.${{ matrix.os }}.exe"
+
+  github_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release
+        uses: softprops/action-gh-release@v3
