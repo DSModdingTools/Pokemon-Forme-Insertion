@@ -5,6 +5,7 @@ set -eux
 cd "$(git rev-parse --show-toplevel)"
 rm -rf "dist"
 uv version --bump=patch
+git commit -am "[build] bump minor version"
 version="$(uv version --short)"
 tagname="release/$version"
 uv run pyinstaller -y --onefile main.py
