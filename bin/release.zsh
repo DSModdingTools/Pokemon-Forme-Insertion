@@ -9,6 +9,7 @@ git commit -am "[build] bump minor version"
 version="$(uv version --short)"
 tagname="release/$version"
 uv run pyinstaller -y --onefile main.py
+chmod +x dist/your_script
 git tag "$tagname"
 git push --tags
 gh release create --draft --fail-on-no-commits --generate-notes --verify-tag "$tagname" dist/main
