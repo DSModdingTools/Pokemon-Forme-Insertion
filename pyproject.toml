@@ -11,6 +11,7 @@ license-files = ["LICENSE"]
 [dependency-groups]
 dev = [
     "coverage>=7.16.1",
+    "ipython>=9.17.1",
     "pytest>=9.1.1",
     "ruff>=0.16.8",
     "ty>=0.0.84",
