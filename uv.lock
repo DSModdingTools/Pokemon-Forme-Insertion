@@ -149,7 +149,7 @@ wheels = [
 [[package]]
 name = "pokemon-forme-insertion"
 version = "3.1"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "coloredlogs" },
 ]
