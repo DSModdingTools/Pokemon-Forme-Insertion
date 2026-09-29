@@ -517,10 +517,6 @@ def true_main():
 
     coloredlogs.install()
 
-    if args.log_server_port:
-        t = logging.config.listen(args.log_server_port)  # ty: ignore[possibly-missing-submodule]
-        t.start()
-
     ui.root_window.configure_root_window(root)
     root.mainloop()
 

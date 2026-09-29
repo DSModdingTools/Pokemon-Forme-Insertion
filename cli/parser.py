@@ -14,8 +14,5 @@ def get_parsed_arguments() -> argparse.Namespace:
     parser.add_argument(
         "-v", "--verbose", help="increase output verbosity", action="store_true"
     )
-    parser.add_argument(
-        "--logserver", dest="log_server_port", type=int, metavar="{1..65535}"
-    )
     args = parser.parse_args()
     return args
