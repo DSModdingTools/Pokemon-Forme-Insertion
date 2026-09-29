@@ -1,0 +1,35 @@
+name: Package Windows Application with PyInstaller
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+
+      - name: Sync UV
+        run: uv sync --locked --all-extras --dev
+
+
+      - name: Package Application with PyInstaller
+        run: |
+          uv run pyinstaller -y --onefile main.py
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: main-windows
+          path: dist/main.exe
