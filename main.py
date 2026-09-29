@@ -11,6 +11,7 @@ import coloredlogs
 
 import infra.tk_log_text_handler
 import infra.tk_log_widget
+import ui.root_window
 from forme_importation_actual import *
 from utilities import *
 
@@ -155,8 +156,7 @@ def pre_check(poke_edit_data: Pokedata):
     return poke_edit_data
 
 
-root = Tk()
-root.title("Pokemon Forme Insertion V." + version)
+root = ui.root_window.create_root_window()
 
 poke_edit_data = Pokedata()
 
