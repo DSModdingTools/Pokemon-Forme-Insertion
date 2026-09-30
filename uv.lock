@@ -278,6 +278,7 @@ version = "5.0.4"
 source = { editable = "." }
 dependencies = [
     { name = "coloredlogs" },
+    { name = "verboselogs" },
 ]
 
 [package.dev-dependencies]
@@ -291,7 +292,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "coloredlogs", specifier = ">=15.0.1" }]
+requires-dist = [
+    { name = "coloredlogs", specifier = ">=15.0.1" },
+    { name = "verboselogs", specifier = ">=1.7" },
+]
 
 [package.metadata.requires-dev]
 dev = [
@@ -524,6 +528,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/9c/f4/ae7dbd118425c850981d23efb850f0d9d7f6b8d2b852bde2767434f668b4/ty-0.0.84-py3-none-win32.whl", hash = "sha256:4bdc85f91cbaae35825f2b17bb4ac5de0563367875cb0f42b2bf07a1bf7ff2ba", size = 13176439, upload-time = "2026-09-24T13:16:15.049Z" },
     { url = "https://files.pythonhosted.org/packages/29/ec/994d87252f065dda5a500bc8afc726d18f6582d81d6f4ff1feb8a267c800/ty-0.0.84-py3-none-win_amd64.whl", hash = "sha256:71cc9aa7a7c89d4e12c6a814e9c0c3310ad5bee44efedbd6f5a42d91e9ac0f0d", size = 13962879, upload-time = "2026-09-24T13:16:18.191Z" },
     { url = "https://files.pythonhosted.org/packages/6d/1c/e6e91852b72566b1ab9aca504712857dfb89324c12092a5bd61d42d34427/ty-0.0.84-py3-none-win_arm64.whl", hash = "sha256:6c9d3718c4a0d318bc9c92af9b2aa85c3294e7dff54cf1d69ad79568f56516da", size = 13656453, upload-time = "2026-09-24T13:16:21.51Z" },
+]
+
+[[package]]
+name = "verboselogs"
+version = "1.7"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/29/15/90ffe9bdfdd1e102bc6c21b1eea755d34e69772074b6e706cab741b9b698/verboselogs-1.7.tar.gz", hash = "sha256:e33ddedcdfdafcb3a174701150430b11b46ceb64c2a9a26198c76a156568e427", size = 10338, upload-time = "2017-08-07T19:46:16.674Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b8/9d/c5c3cb0093642042fd604b53928ac65e7650fdc5a8a97814288e29beab84/verboselogs-1.7-py2.py3-none-any.whl", hash = "sha256:d63f23bf568295b95d3530c6864a0b580cec70e7ff974177dead1e4ffbc6ff49", size = 11907, upload-time = "2017-08-07T19:46:15.266Z" },
 ]
 
 [[package]]

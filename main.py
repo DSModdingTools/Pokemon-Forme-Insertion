@@ -7,6 +7,7 @@ from tkinter import ttk
 from tkinter.ttk import *
 
 import coloredlogs
+import verboselogs
 
 import cli.parser
 import infra.tk_log_text_handler
@@ -502,6 +503,8 @@ log_window.grid(row=1, column=1)
 
 text_handler = infra.tk_log_text_handler.TKinterTextHandler(log_window)
 
+# Once main.py is split out this one can go away
+verboselogs.install()
 logger = logging.getLogger(__name__)
 logger.addHandler(text_handler)
 
@@ -515,7 +518,8 @@ def true_main():
     else:
         logging.basicConfig(level=logging.INFO)
 
-    coloredlogs.install()
+    verboselogs.install()
+    coloredlogs.install(milliseconds=True)
 
     ui.root_window.configure_root_window(root)
     root.mainloop()
