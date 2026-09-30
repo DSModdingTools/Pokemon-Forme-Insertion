@@ -3,6 +3,8 @@ name: Release Application
 permissions:
   contents: write
   discussions: write
+  artifact-metadata: write
+  attestations: write
 
 on:
   push:
@@ -54,7 +56,6 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
-          target_commitish: ${{ github.sha }}
           generate_release_notes: true
           draft: true
           fail_on_unmatched_files: true
