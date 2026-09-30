@@ -1,6 +1,6 @@
 [project]
 name = "pokemon-forme-insertion"
-version = "5.0.13"
+version = "5.0.14"
 description = "Add your description here"
 requires-python = ">=3.13"
 dependencies = [
