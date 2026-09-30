@@ -30,7 +30,7 @@ jobs:
 
       - name: Build
         run: |
-          uv run pyinstaller -y --onefile -n "main.${{ matrix.os }}.exe" main.py
+          uv run pyinstaller -y --onefile --hidden-import=tkinter --hidden-import=tkinter.filedialog -n  "main.${{ matrix.os }}.exe" main.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
