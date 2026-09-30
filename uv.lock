@@ -274,7 +274,7 @@ wheels = [
 
 [[package]]
 name = "pokemon-forme-insertion"
-version = "5.0.6"
+version = "5.0.7"
 source = { editable = "." }
 dependencies = [
     { name = "coloredlogs" },
