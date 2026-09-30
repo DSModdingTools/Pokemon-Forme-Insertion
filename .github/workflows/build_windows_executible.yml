@@ -2,24 +2,15 @@ name: Release Application
 
 permissions:
   contents: write
+  discussions: write
 
 on:
   push:
-    branches: [ main ]
+    tags:
+      - "release/*"
   workflow_dispatch:
 
 jobs:
-  prep_for_release:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Bump Version
-        run: |
-#          uv version --bump=patch
-#          git commit -am "[build] bump minor version"
-#          version="$(uv version --short)"
-#          tagname="release/$version"
-#          git tag "$tagname"
-
   build_for_release:
     strategy:
       matrix:
@@ -50,5 +41,21 @@ jobs:
   github_release:
     runs-on: ubuntu-latest
     steps:
+      - name: get built artifacts
+        uses: actions/download-artifact@v8
+        with:
+          skip-decompress: true
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
       - name: Release
         uses: softprops/action-gh-release@v3
+        with:
+          target_commitish: ${{ github.sha }}
+          generate_release_notes: true
+          draft: true
+          fail_on_unmatched_files: true
+          files: |
+            main.macos-latest.exe
+            main.windows-latest.exe
