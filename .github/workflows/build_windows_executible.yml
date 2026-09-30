@@ -35,7 +35,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
-          name: main-windows
+          name: "${{ matrix.os }}.exe"
           path: "dist/main.${{ matrix.os }}.exe"
 
   github_release:
