@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          path: "pokemon_forme_insertion"
+
       - uses: astral-sh/setup-uv@v10.2.0
       - run: uv sync --locked --all-extras --dev
       - run: uv run ruff check .
