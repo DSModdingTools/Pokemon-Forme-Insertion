@@ -15,6 +15,7 @@ import infra.tk_log_widget
 import ui.root_window
 from forme_importation_actual import *
 from utilities import *
+import rich.traceback
 
 
 def pre_check(poke_edit_data: Pokedata):
@@ -520,6 +521,7 @@ def true_main():
 
     verboselogs.install()
     coloredlogs.install(milliseconds=True)
+    rich.traceback.install(show_locals=True)
 
     ui.root_window.configure_root_window(root)
     root.mainloop()
