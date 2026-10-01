@@ -1,5 +1,6 @@
 import logging
 import logging.config
+import sys
 import tkinter.constants
 import tkinter.scrolledtext
 from tkinter import *
@@ -16,6 +17,7 @@ import ui.root_window
 from forme_importation_actual import *
 from utilities import *
 import rich.traceback
+from rich import print
 
 
 def pre_check(poke_edit_data: Pokedata):
@@ -512,7 +514,7 @@ logger.addHandler(text_handler)
 update_button_states(poke_edit_data)
 
 
-def true_main():
+def true_main() -> int:
     args = cli.parser.get_parsed_arguments()
     if args.verbose:
         logging.basicConfig(level=logging.DEBUG)
@@ -523,9 +525,17 @@ def true_main():
     coloredlogs.install(milliseconds=True)
     rich.traceback.install(show_locals=True)
 
-    ui.root_window.configure_root_window(root)
-    root.mainloop()
+    if args.gui:
+        ui.root_window.configure_root_window(root)
+        root.mainloop()
 
+    return 0
+
+def pre_main():
+    """
+        Used for quick tests. Should not be removed but typically empty.
+    """
 
 if __name__ == "__main__":
-    true_main()
+    pre_main()
+    sys.exit(true_main())
