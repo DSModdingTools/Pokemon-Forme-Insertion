@@ -298,6 +298,7 @@ name = "pokemon-forme-insertion"
 version = "5.0.15"
 source = { editable = "." }
 dependencies = [
+    { name = "colorama" },
     { name = "coloredlogs" },
     { name = "rich" },
     { name = "verboselogs" },
@@ -315,6 +316,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "colorama", specifier = ">=0.4.6" },
     { name = "coloredlogs", specifier = ">=15.0.1" },
     { name = "rich", specifier = ">=15.0.0" },
     { name = "verboselogs", specifier = ">=1.7" },

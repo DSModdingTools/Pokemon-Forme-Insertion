@@ -8,7 +8,9 @@ from tkinter import ttk
 from tkinter.ttk import *
 
 import coloredlogs
+import rich.traceback
 import verboselogs
+from colorama import just_fix_windows_console
 
 import cli.parser
 import infra.tk_log_text_handler
@@ -16,8 +18,6 @@ import infra.tk_log_widget
 import ui.root_window
 from forme_importation_actual import *
 from utilities import *
-import rich.traceback
-from rich import print
 
 
 def pre_check(poke_edit_data: Pokedata):
@@ -521,9 +521,11 @@ def true_main() -> int:
     else:
         logging.basicConfig(level=logging.INFO)
 
+    just_fix_windows_console()
     verboselogs.install()
     coloredlogs.install(milliseconds=True)
     rich.traceback.install(show_locals=True)
+
 
     if args.gui:
         ui.root_window.configure_root_window(root)
