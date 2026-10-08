@@ -10,6 +10,7 @@ from tkinter import ttk
 from tkinter.ttk import *
 
 import coloredlogs
+import rich.logging
 import rich.traceback
 import verboselogs
 from colorama import just_fix_windows_console
@@ -512,6 +513,7 @@ text_handler = infra.tk_log_text_handler.TKinterTextHandler(log_window)
 verboselogs.install()
 logger = logging.getLogger(__name__)
 logger.addHandler(text_handler)
+logger.addHandler(rich.logging.RichHandler(tracebacks_show_locals=True))
 
 update_button_states(poke_edit_data)
 
@@ -523,11 +525,12 @@ def true_main() -> int:
     else:
         logging.basicConfig(level=logging.INFO)
 
+
     just_fix_windows_console()
     verboselogs.install()
     coloredlogs.install(milliseconds=True)
     rich.traceback.install(show_locals=True)
-
+    logger.addHandler(rich.logging.RichHandler(tracebacks_show_locals=True))
 
     if args.gui:
         ui.root_window.configure_root_window(root)
