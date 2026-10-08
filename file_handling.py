@@ -24,11 +24,11 @@ def concatenate_bin_files(folder_path):
     #generation = 7
     pad_count = 4
     #max_binary_file = 9999
-    
-    
+
+
     #grab list of filenames inside folder
     dir_list = os.listdir(folder_path)
-    
+
     #check to see gen. Gen 6 has 3 char, 7 has 4, with extension is 7 and 8
     if(len(dir_list[0]) == 8):
         #generation = 7
@@ -43,28 +43,28 @@ def concatenate_bin_files(folder_path):
         return
     #check to see if current directory has the compilation file:
     #grab last index
-    
+
     #if length of last element is greater than dec 84, is compilation file (or something is wrong)
     if(os.path.getsize(os.path.join(folder_path, dir_list[-1])) > 84):
         # move the old compilation file to current directory and stick "backup_" in front of it
         dropbox_workaround_file_rename(os.path.join(folder_path, dir_list[-1]), 'backup_' + dir_list[-1])
         print('Backed up old compilation file to executable\'s directory')
-        
+
         #remove compilation file from dir_list
         del dir_list[-1]
-    
+
     #print(len(dir_list)-1, " Pokemon entries detected.")
-    
+
     with open(os.path.join(folder_path, str(len(dir_list)).zfill(pad_count) + '.bin'), 'wb') as output_stream:
         for file_name in dir_list:
             file_path = os.path.join(folder_path, file_name)
-            
+
             if os.path.exists(file_path):
                 with open(file_path, 'rb') as file:
                     data = file.read()
                     output_stream.write(data)
     print('New compilation file created')
-    
+
     return"""
 
 

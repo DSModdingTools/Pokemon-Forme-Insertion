@@ -525,7 +525,6 @@ def true_main() -> int:
     else:
         logging.basicConfig(level=logging.INFO)
 
-
     just_fix_windows_console()
     verboselogs.install()
     coloredlogs.install(milliseconds=True)
@@ -538,10 +537,12 @@ def true_main() -> int:
 
     return 0
 
+
 def pre_main():
     """
-        Used for quick tests. Should not be removed but typically empty.
+    Used for quick tests. Should not be removed but typically empty.
     """
+
 
 if __name__ == "__main__":
     pre_main()
