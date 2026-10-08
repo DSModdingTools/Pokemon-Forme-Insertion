@@ -1,3 +1,5 @@
+#!/usr/bin/env -S uv run --gui-script
+
 import logging
 import logging.config
 import sys
