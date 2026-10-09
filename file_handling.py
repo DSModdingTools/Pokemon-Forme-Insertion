@@ -210,7 +210,9 @@ def update_model_list(poke_edit_data: Pokedata) -> Pokedata:
     return(poke_edit_data)"""
 
 
-def update_species_list(poke_edit_data : Pokedata, overwrite_from_default: bool=False) -> Pokedata:
+def update_species_list(
+    poke_edit_data: Pokedata, overwrite_from_default: bool = False
+) -> Pokedata:
 
     if overwrite_from_default or (len(poke_edit_data.master_list_csv) < 100):
         print("Initializing default Species list")  # noqa: T201
