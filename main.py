@@ -196,6 +196,11 @@ def update_button_states(poke_edit_data) -> None:
         save_pokelist_csv_button.configure(state=tkinter.NORMAL)
     else:
         save_pokelist_csv_button.configure(state=tkinter.DISABLED)
+    base_species_combobox_value = base_species_combobox.get()
+    if base_species_combobox_value:
+        execute_button.configure(state=tkinter.NORMAL)
+    else:
+        execute_button.configure(state=tkinter.DISABLED)
 
 
 # these are ugly, need to figure out passing event to consolidate
@@ -429,10 +434,13 @@ evolution_checkbutton = Checkbutton(
 )
 evolution_checkbutton.grid(row=1, column=5, sticky="nsew")
 evolution_bool.set(True)
-# base species combobox
-base_species_combobox = ttk.Combobox(root, values=[])
-base_species_combobox.grid(row=3, column=0, sticky="new")
 
+def species_combobox_postcommand():
+    update_button_states(poke_edit_data)
+
+# base species combobox
+base_species_combobox = ttk.Combobox(root, values=[], postcommand=species_combobox_postcommand)
+base_species_combobox.grid(row=3, column=0, sticky="new")
 base_species_combobox.bind("<KeyRelease>", base_species_combobox_search)
 
 # Number of New Formes
