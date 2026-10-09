@@ -75,7 +75,7 @@ def update_csv_after_changes(
     start_location,
     inserted_bool=False,
     model_source_flags=None,
-):
+) -> Pokedata:
 
     # get all row numbers of this species
     if model_source_flags is None:
@@ -154,16 +154,16 @@ def update_csv_after_changes(
         except:  # ruff: ignore[E722, S110]
             pass
 
-    return poke_edit_data
+    return poke_edit_data  # ty: ignore[unsound-return-statement]
 
 
-def update_model_list(poke_edit_data):
+def update_model_list(poke_edit_data: Pokedata) -> Pokedata:
 
     # if we haven't loaded the Personal file yet, we will need to do all the rest later
     if len(poke_edit_data.personal) == 0:
         poke_edit_data.run_model_later = True
-        print("Will initialize Model list after the Personal list")  # noqa: T201
-        return
+        raise ValueError("Will initialize Model list after the Personal list")
+
     else:
         poke_edit_data.run_model_later = False
         print("Initializing default Model list")  # noqa: T201
@@ -191,7 +191,7 @@ def update_model_list(poke_edit_data):
 
     # copy this into the current list to initialize properly (particularly when loading from cfg)
     poke_edit_data.model_source_list = model_temp_list.copy()
-    poke_edit_data.current_model_source_list = poke_edit_data.model_source_list.copy()
+    poke_edit_data.current_model_source_list = poke_edit_data.model_source_list.copy()  # ty: ignore[unresolved-attribute]
 
     return poke_edit_data
 
@@ -210,7 +210,7 @@ def update_model_list(poke_edit_data):
     return(poke_edit_data)"""
 
 
-def update_species_list(poke_edit_data, overwrite_from_default=False):
+def update_species_list(poke_edit_data : Pokedata, overwrite_from_default: bool=False) -> Pokedata:
 
     if overwrite_from_default or (len(poke_edit_data.master_list_csv) < 100):
         print("Initializing default Species list")  # noqa: T201

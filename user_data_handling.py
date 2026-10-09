@@ -6,6 +6,7 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 from datum.garcs import is_garcs_loaded
 from file_handling import *
 from utilities import *
+from enum import Enum
 
 logger = logging.getLogger(__name__)
 
@@ -256,21 +257,28 @@ def reconstruct_GARC(poke_edit_data, GARC_name):
     return temp
 
 
-def save_GARC(poke_edit_data, GARC_name: str):
+class GARCType(Enum):
+    personal = "personal"
+    evolution = "evolution"
+    levelup = "levelup"
+    model = "model"
 
-    temp = reconstruct_GARC(poke_edit_data, GARC_name)
 
-    match GARC_name:
-        case "personal":
+def save_GARC(poke_edit_data: Pokedata, garc_name: GARCType):
+
+    temp = reconstruct_GARC(poke_edit_data, garc_name)
+
+    match garc_name:
+        case GARCType.personal:
             file_path = poke_edit_data.personal_path
-        case "evolution":
+        case GARCType.evolution:
             file_path = poke_edit_data.evolution_path
-        case "levelup":
+        case GARCType.levelup:
             file_path = poke_edit_data.levelup_path
-        case "model":
+        case GARCType.model:
             file_path = poke_edit_data.model_path
 
-    with open(file_path, "w+b") as f:  # ty: ignore[possibly-unresolved-reference]
+    with open(file_path, "w+b") as f:
         f.write(bytes(temp))
 
 

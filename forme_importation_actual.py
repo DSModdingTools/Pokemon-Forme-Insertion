@@ -1,27 +1,26 @@
 from tkinter.filedialog import asksaveasfile
 
-from file_handling import *
-from my_constants import *
 from user_data_handling import *
 
+logger = logging.getLogger(__name__)
 
-def save_and_refresh_GARCs(poke_edit_data):
-    # save the GARCs
-    save_GARC(poke_edit_data, "personal")
-    save_GARC(poke_edit_data, "evolution")
-    save_GARC(poke_edit_data, "levelup")
-    save_GARC(poke_edit_data, "model")
-    print("GARC files written\n")  # noqa: T201
+
+def save_and_refresh_GARCs(poke_edit_data: Pokedata):
+    save_GARC(poke_edit_data, GARCType.personal)
+    save_GARC(poke_edit_data, GARCType.evolution)
+    save_GARC(poke_edit_data, GARCType.levelup)
+    save_GARC(poke_edit_data, GARCType.model)
+    logger.info("GARC files written")
 
     poke_edit_data.run_model_later = False
     poke_edit_data = update_model_list(poke_edit_data)
     poke_edit_data = update_species_list(poke_edit_data)
-    print("Internal tables updated with changes" + "\n")  # noqa: T201
+    logger.info("Internal tables updated with changes")
     return poke_edit_data
 
 
 # Sorts Forme file order of Personal, Evolution, and Levelup Garc folders in order to allow for new formes of existing multi-formed Pokemon to be added
-def resort_file_structure(poke_edit_data):
+def resort_file_structure(poke_edit_data: Pokedata):
 
     forme_index = poke_edit_data.max_species_index + 1
 
@@ -149,7 +148,7 @@ def check_adding_without_models_works(poke_edit_data, base_form_index, new_forme
 
 # handles actual editing and moving of files for forme insertion
 def add_new_forme_execute(
-    poke_edit_data,
+    poke_edit_data: Pokedata,
     base_form_index,
     new_forme_count,
     model_source_index,
@@ -163,7 +162,7 @@ def add_new_forme_execute(
 
     if not (poke_edit_data.sorted):
         print("Detected unsorted files, this might take a while.")  # noqa: T201
-        poke_edit_data = resort_file_structure(poke_edit_data)
+        poke_edit_data = resort_file_structure(poke_edit_data)  # ty: ignore[unsound-assignment]
         return poke_edit_data
 
     # first unused file name
@@ -458,10 +457,10 @@ def add_new_forme_execute(
     save_and_refresh_GARCs(poke_edit_data)
 
     try:
-        poke_edit_data = write_CSV(poke_edit_data)
+        poke_edit_data = write_CSV(poke_edit_data)  # ty: ignore[unsound-assignment]
     except:  # ruff: ignore[E722]
         print("Please close your Pokemon Names and Files CSV if it is open")  # noqa: T201
-        poke_edit_data.csv_pokemon_list_path = asksaveasfile(
+        poke_edit_data.csv_pokemon_list_path = asksaveasfile(  # ty: ignore[invalid-assignment]
             title="Select Pokemon Names and Files CSV"
         )
         write_CSV(poke_edit_data)

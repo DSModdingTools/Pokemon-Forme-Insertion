@@ -134,7 +134,7 @@ def import_levelup(move_edit_data, move_list, pokemon_list):
 
     move_edit_data.levelup = output_array
 
-    save_GARC(move_edit_data, "levelup")
+    save_GARC(move_edit_data, GARCType.levelup)
 
     return move_edit_data
 
