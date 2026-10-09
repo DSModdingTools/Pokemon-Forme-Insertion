@@ -320,7 +320,6 @@ def load_GARC(poke_edit_data, garc_path, target, gameassert):
                     poke_edit_data = update_model_list(poke_edit_data)
         except Exception as e:
             logger.exception(poke_edit_data)
-            print(e)  # noqa: T201
 
     else:
         logger.warning("Garc folder not found, unreadable, or empty")
@@ -592,7 +591,6 @@ def load_names_from_CSV(poke_edit_data, just_wrote=False):
 
                 temp_loaded_csv.append(temp_row)
 
-                # print(temp_row)
                 # build the underlying species, forme, and model file lists
                 # if personal index is the same as the nat dex number, is the base forme, so append the species name
                 if (
@@ -626,7 +624,6 @@ def load_names_from_CSV(poke_edit_data, just_wrote=False):
                         + data_rows[4]
                     )
 
-                # print(data_rows)
         # series of checks to see if it is the case that the loaded CSV arrays are shorter than the default-created ones (in which case assume we just created/refreshed the CSV, or loaded the wrong thing), or is longer (in which case the CSV has more entries than the game files and something is terribly wrong)
         # only do this if we loaded, not if we just insert a Pokemon
 
@@ -775,7 +772,6 @@ def write_CSV(poke_edit_data, csv_path=""):
                 else:
                     model_file_start = 3
 
-            # print(len(poke_edit_data.master_list_csv))
             # iterate over the names in the model source list
             # write species index to column A, personal file index to B, model index to C, species name to D, forme to E, then model/texture/animaiton filenames in 6 starts at 4, 3, 1 for XY, ORAS, SMUSUM
             for enum, pokemon_instance in enumerate(poke_edit_data.master_list_csv):
@@ -831,7 +827,6 @@ def write_CSV(poke_edit_data, csv_path=""):
             "If this error message is thrown and the CSV has all the Pokemon in it, everything is fine, not sure why this error is happening",
         )  #'Selected CSV file is open in another program. Please close it and try again')
 
-    # print('after write')
     # for pokemon_instance in poke_edit_data.master_list_csv:
     #    print(pokemon_instance)
     return poke_edit_data
@@ -843,7 +838,7 @@ def user_prompt_write_CSV(poke_edit_data, target, gamesassert=""):
         poke_edit_data.game = gamesassert
 
     if not is_garcs_loaded(poke_edit_data):
-        print("Please load the GARCs before creating CSV")  # noqa: T201
+        logger.error("Please load the GARCs before creating CSV")  # noqa: T201
         return poke_edit_data
 
     flags_offset = 4 * (1 + poke_edit_data.max_species_index)
@@ -881,8 +876,8 @@ def create_refresh_CSV(poke_edit_data, gameassert):
         poke_edit_data.game = gameassert
 
     if not (poke_edit_data.game in {"XY", "ORAS", "SM", "USUM"}):
-        print("Please select supported game")  # noqa: T201
-        return
+        logger.error("Please select supported game")  # noqa: T201
+        return None
     match poke_edit_data.game:
         case "XY":
             poke_edit_data.master_list_csv = xy_master_list_csv.copy()
@@ -938,8 +933,8 @@ def load_game_cfg(poke_edit_data):
     try:
         with open(game_cfg_path, "r") as cfg:
             cfg_array = [line.rstrip() for line in cfg]
-    except Exception as e:  # ruff: ignore[BLE001]
-        print(e)  # noqa: T201
+    except Exception:
+        logger.exception(poke_edit_data)
         return poke_edit_data
     try:
         poke_edit_data.game = cfg_array[0]
@@ -969,16 +964,15 @@ def load_game_cfg(poke_edit_data):
             )
         poke_edit_data.csv_pokemon_list_path = cfg_array[11]
     except:  # ruff: ignore[E722]
-        print("Config file missing lines, loaded what was there")  # noqa: T201
+        logger.info("Config file missing lines, loaded what was there")
 
     try:
-        print("Data loaded as follows:")  # noqa: T201
+        logger.info("Data loaded as follows:")  # noqa: T201
         for x in range(len(cfg_desc)):
             if cfg_desc[x] != "":
-                print(cfg_desc[x] + ": " + str(cfg_array[x]))  # noqa: T201
+                logger.info(cfg_desc[x] + ": " + str(cfg_array[x]))
     except:  # ruff: ignore[E722]
-        print("Missing lines from config")  # noqa: T201
-    print("\n")  # noqa: T201
+        logger.info("Missing lines from config")
 
     poke_edit_data = load_GARC(
         poke_edit_data, poke_edit_data.personal_path, "Personal", poke_edit_data.game
@@ -994,18 +988,18 @@ def load_game_cfg(poke_edit_data):
     )
     poke_edit_data = load_names_from_CSV(poke_edit_data)
 
-    print("Sorted: ", poke_edit_data.sorted, "\n")  # noqa: T201
-    print(  # noqa: T201
-        "Number of Species:",
+    logger.debug("Sorted: %s, %s", poke_edit_data.sorted, "\n")
+    logger.debug(
+        "Number of Species: %d %s",
         len(poke_edit_data.base_species_list),
         "(not including the Egg)",
     )
-    print(  # noqa: T201
-        "Number of Personal Entries:",
+    logger.debug(  # noqa: T201
+        "Number of Personal Entries: %d %s",
         len(poke_edit_data.master_formes_list) - 1,
         "(not including the Egg)",
     )
-    print("Number of Model Entries:", len(poke_edit_data.model_source_list))  # noqa: T201
+    logger.debug("Number of Model Entries: %d", len(poke_edit_data.model_source_list))
     """except:
         print('Selection missing or invalid')"""
 
@@ -1047,11 +1041,11 @@ def save_game_cfg(poke_edit_data, game_set=""):
             cfg.write(str(poke_edit_data.sorted) + "\n")
             cfg.write(str(poke_edit_data.max_species_index) + "\n")
             cfg.write(poke_edit_data.csv_pokemon_list_path)
-        print("Config file saved to " + game_cfg_path)  # noqa: T201
+        logger.info("Config file saved to " + game_cfg_path)
         write_CSV(poke_edit_data)
-        print(  # noqa: T201
+        logger.info(
             "Names and Model File List CSV saved to "
             + poke_edit_data.csv_pokemon_list_path
         )
-    except Exception as e:  # ruff: ignore[BLE001]
-        print(e, "save game error")  # noqa: T201
+    except Exception:
+        logger.exception("save game error")
