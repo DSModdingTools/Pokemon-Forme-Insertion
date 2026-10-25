@@ -23,17 +23,16 @@ from forme_importation_actual import *
 from utilities import *
 
 
-def pre_check(poke_edit_data: Pokedata):
+def pre_check(poke_edit_data: Pokedata) -> Pokedata:
 
     # get index of base species
     try:
         title = base_species_combobox.get().title()
         base_form_index = int(poke_edit_data.base_species_list.index(title)) + 1
-    except Exception:
-        logger.exception(
-            f"Error at base species '{base_species_combobox.get()}' not found."
+    except Exception as e:  # noqa: BLE001
+        raise ValueError(
+            f"Error at base species '{base_species_combobox.get()}' not found.", e
         )
-        return None
 
     # number of formes to add
     new_forme_count = int(number_formes_entry.get())
@@ -47,9 +46,8 @@ def pre_check(poke_edit_data: Pokedata):
             model_source_index = int(
                 poke_edit_data.model_source_list.index(model_combobox.get().title())
             )
-    except Exception:
-        logger.exception("Error at model, '%s' %s", model_combobox.get(), "not found.")
-        return None
+    except Exception:  # noqa: BLE001
+        raise ValueError("Error at model, '%s' %s", model_combobox.get(), "not found.")
 
     # personal
     try:
@@ -60,11 +58,10 @@ def pre_check(poke_edit_data: Pokedata):
             personal_source_index = int(
                 poke_edit_data.master_formes_list.index(personal_combobox.get().title())
             )
-    except Exception:
-        logger.exception(
+    except Exception:  # noqa: BLE001
+        raise ValueError(
             "Error at personal, '%s' %s", personal_combobox.get(), "not found."
         )
-        return None
 
     # levelup
     try:
@@ -75,11 +72,10 @@ def pre_check(poke_edit_data: Pokedata):
             levelup_source_index = int(
                 poke_edit_data.master_formes_list.index(levelup_combobox.get().title())
             )
-    except Exception:
-        logger.exception(
+    except Exception:  # noqa: BLE001
+        raise ValueError(
             "Error at levelup '%s' %s,", levelup_combobox.get(), "not found."
         )
-        return None
 
     # evolution
     try:
@@ -92,11 +88,10 @@ def pre_check(poke_edit_data: Pokedata):
                     evolution_combobox.get().title()
                 )
             )
-    except Exception:
-        logger.exception(
+    except Exception:  # noqa: BLE001
+        raise ValueError(
             "Error at evolution, '%s' %s", evolution_combobox.get(), "not found."
         )
-        return None
 
     # if skip_model_creation_bool is true, checkbox is unclicked, and we want to try skipping model insertion. If it's false (as per default), just set to false, no need for further check
     if skip_model_creation_bool.get():
@@ -104,7 +99,7 @@ def pre_check(poke_edit_data: Pokedata):
             check_adding_without_models_works(
                 poke_edit_data, base_form_index, new_forme_count
             )
-        )  # ty: ignore[unsound-assignment]
+        )
         # if the above check function returned false, something is not quite right, abort
         if not (skip_model_insertion):
             return poke_edit_data
@@ -158,7 +153,7 @@ def pre_check(poke_edit_data: Pokedata):
         model_bool.get(),
         skip_model_insertion,
         update_forme_count,
-    )  # ty: ignore[unsound-assignment]
+    )
 
     return poke_edit_data
 

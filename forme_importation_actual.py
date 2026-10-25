@@ -1,4 +1,5 @@
 from tkinter.filedialog import asksaveasfile
+from typing import Literal
 
 from user_data_handling import *
 
@@ -6,10 +7,10 @@ logger = logging.getLogger(__name__)
 
 
 def save_and_refresh_GARCs(poke_edit_data: Pokedata):
-    save_GARC(poke_edit_data, GARCType.personal)
-    save_GARC(poke_edit_data, GARCType.evolution)
-    save_GARC(poke_edit_data, GARCType.levelup)
-    save_GARC(poke_edit_data, GARCType.model)
+    save_GARC(poke_edit_data, GARCType.PERSONAL)
+    save_GARC(poke_edit_data, GARCType.EVOLUTION)
+    save_GARC(poke_edit_data, GARCType.LEVELUP)
+    save_GARC(poke_edit_data, GARCType.MODEL)
     logger.info("GARC files written")
 
     poke_edit_data.run_model_later = False
@@ -20,7 +21,7 @@ def save_and_refresh_GARCs(poke_edit_data: Pokedata):
 
 
 # Sorts Forme file order of Personal, Evolution, and Levelup Garc folders in order to allow for new formes of existing multi-formed Pokemon to be added
-def resort_file_structure(poke_edit_data: Pokedata):
+def resort_file_structure(poke_edit_data: Pokedata) -> Pokedata:
 
     forme_index = poke_edit_data.max_species_index + 1
 
@@ -96,11 +97,10 @@ def resort_file_structure(poke_edit_data: Pokedata):
     return poke_edit_data
 
 
-def check_adding_without_models_works(poke_edit_data, base_form_index, new_forme_count):
-
+def check_adding_without_models_works(
+    poke_edit_data: Pokedata, base_form_index, new_forme_count
+) -> tuple[Pokedata, bool | Literal[True], int]:
     temp_forme_count_from_personal_file_count = 1
-    explicit_forme_count = 0
-    update_forme_count = 0
     # get the number of Personal files this pokemon actually has
     explicit_forme_count = poke_edit_data.personal[base_form_index][0x20]
     temp_pointer = from_little_bytes_int(
@@ -134,7 +134,7 @@ def check_adding_without_models_works(poke_edit_data, base_form_index, new_forme
         # unset the "female cosmetic forme" flag if set
         if poke_edit_data.model_header[4 * (base_form_index - 1) + 3] in {3, 7}:
             poke_edit_data.model_header[4 * (base_form_index - 1) + 3] = 5
-        return (poke_edit_data, True, update_forme_count)
+        return poke_edit_data, True, update_forme_count  # ty: ignore[unsound-return-statement]
     else:
         print(  # noqa: T201
             "There are "
@@ -143,7 +143,7 @@ def check_adding_without_models_works(poke_edit_data, base_form_index, new_forme
             + str(temp_forme_count_from_personal_file_count)
             + " Personal files, aborting."
         )
-        return (poke_edit_data, False, 0)
+        return poke_edit_data, False, 0
 
 
 # handles actual editing and moving of files for forme insertion
@@ -158,11 +158,11 @@ def add_new_forme_execute(
     def_model,
     skip_model_insertion,
     update_forme_count,
-):
+) -> Pokedata:
 
     if not (poke_edit_data.sorted):
-        print("Detected unsorted files, this might take a while.")  # noqa: T201
-        poke_edit_data = resort_file_structure(poke_edit_data)  # ty: ignore[unsound-assignment]
+        logger.warning("Detected unsorted files, this might take a while.")
+        poke_edit_data = resort_file_structure(poke_edit_data)
         return poke_edit_data
 
     # first unused file name
