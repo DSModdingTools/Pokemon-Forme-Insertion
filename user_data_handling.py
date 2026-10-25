@@ -851,9 +851,9 @@ def user_prompt_write_CSV(poke_edit_data: Pokedata, target, gamesassert=""):
     flags_offset = 4 * (1 + poke_edit_data.max_species_index)
 
     while True:
-        print(poke_edit_data.model_header[flags_offset: flags_offset + 2])
+        print(poke_edit_data.model_header[flags_offset : flags_offset + 2])
 
-        if(poke_edit_data.model_header[flags_offset: flags_offset + 2] == [0xCC, 0xCC]):
+        if poke_edit_data.model_header[flags_offset : flags_offset + 2] == [0xCC, 0xCC]:
             flags_offset += 2
         else:
             break

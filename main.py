@@ -528,7 +528,6 @@ def true_main() -> int:
     coloredlogs.install(milliseconds=True)
     rich.traceback.install(show_locals=True)
     logger.addHandler(rich.logging.RichHandler(tracebacks_show_locals=True))
-
     if args.gui:
         ui.root_window.configure_root_window(root)
         root.mainloop()
