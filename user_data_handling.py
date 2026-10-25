@@ -91,23 +91,30 @@ def deconstruct_GARC(bindata, poke_edit_data):
     return output_array
 
 
-def reconstruct_GARC(poke_edit_data, GARC_name):
+class GARCType(Enum):
+    PERSONAL = "personal"
+    EVOLUTION = "evolution"
+    LEVELUP = "levelup"
+    MODEL = "model"
+
+
+def reconstruct_GARC(poke_edit_data, GARC_name: GARCType):
 
     match GARC_name:
-        case "personal":
+        case GARCType.PERSONAL:
             # merges concatenated file for output
             out_file = poke_edit_data.personal + [
                 reduce(lambda i, j: i + j, poke_edit_data.personal)
             ]
-        case "evolution":
+        case GARCType.EVOLUTION:
             out_file = poke_edit_data.evolution
-        case "levelup":
+        case GARCType.LEVELUP:
             out_file = poke_edit_data.levelup
-        case "model":
+        case GARCType.MODEL:
             # merges with header for output
             out_file = [poke_edit_data.model_header] + poke_edit_data.model
 
-    file_count = len(out_file)  # ty: ignore[possibly-unresolved-reference]
+    file_count = len(out_file)
 
     temp = [0x0] * 0x1C
     FAT0_offset = 0
@@ -197,7 +204,7 @@ def reconstruct_GARC(poke_edit_data, GARC_name):
     offset = 0
     biggest_size = 0
     biggest_size_padding = 0
-    for file in out_file:  # ty: ignore[possibly-unresolved-reference]
+    for file in out_file:
         # padding
         temp[pointer : pointer + 4] = [0x01, 0x00, 0x00, 0x00]
 
@@ -257,25 +264,18 @@ def reconstruct_GARC(poke_edit_data, GARC_name):
     return temp
 
 
-class GARCType(Enum):
-    personal = "personal"
-    evolution = "evolution"
-    levelup = "levelup"
-    model = "model"
-
-
 def save_GARC(poke_edit_data: Pokedata, garc_name: GARCType):
 
     temp = reconstruct_GARC(poke_edit_data, garc_name)
 
     match garc_name:
-        case GARCType.personal:
+        case GARCType.PERSONAL:
             file_path = poke_edit_data.personal_path
-        case GARCType.evolution:
+        case GARCType.EVOLUTION:
             file_path = poke_edit_data.evolution_path
-        case GARCType.levelup:
+        case GARCType.LEVELUP:
             file_path = poke_edit_data.levelup_path
-        case GARCType.model:
+        case GARCType.MODEL:
             file_path = poke_edit_data.model_path
 
     with open(file_path, "w+b") as f:
@@ -854,7 +854,7 @@ def user_prompt_write_CSV(poke_edit_data: Pokedata, target, gamesassert=""):
     flags_offset = 4 * (1 + poke_edit_data.max_species_index)
 
     while True:
-        print(poke_edit_data.model_header[flags_offset : flags_offset + 2])
+        print(poke_edit_data.model_header[flags_offset : flags_offset + 2])  # noqa: T201
 
         if poke_edit_data.model_header[flags_offset : flags_offset + 2] == [0xCC, 0xCC]:
             flags_offset += 2
