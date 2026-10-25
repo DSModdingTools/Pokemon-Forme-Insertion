@@ -1,12 +1,12 @@
 import csv
 import logging
+from enum import Enum
 from functools import reduce
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
 from datum.garcs import is_garcs_loaded
 from file_handling import *
 from utilities import *
-from enum import Enum
 
 logger = logging.getLogger(__name__)
 
@@ -326,7 +326,7 @@ def load_GARC(poke_edit_data, garc_path, target, gameassert):
                     poke_edit_data.model_header = file_array.pop(0)
                     poke_edit_data.model = file_array
                     poke_edit_data = update_model_list(poke_edit_data)
-        except Exception as e:
+        except Exception:
             logger.exception(poke_edit_data)
 
     else:
@@ -845,7 +845,7 @@ def user_prompt_write_CSV(poke_edit_data: Pokedata, target, gamesassert=""):
         poke_edit_data.game = gamesassert
 
     if not is_garcs_loaded(poke_edit_data):
-        logger.error("Please load the GARCs before creating CSV")  # noqa: T201
+        logger.error("Please load the GARCs before creating CSV")
         return poke_edit_data
 
     flags_offset = 4 * (1 + poke_edit_data.max_species_index)
@@ -883,7 +883,7 @@ def create_refresh_CSV(poke_edit_data, gameassert):
         poke_edit_data.game = gameassert
 
     if not (poke_edit_data.game in {"XY", "ORAS", "SM", "USUM"}):
-        logger.error("Please select supported game")  # noqa: T201
+        logger.error("Please select supported game")
         return None
     match poke_edit_data.game:
         case "XY":
@@ -974,7 +974,7 @@ def load_game_cfg(poke_edit_data):
         logger.info("Config file missing lines, loaded what was there")
 
     try:
-        logger.info("Data loaded as follows:")  # noqa: T201
+        logger.info("Data loaded as follows:")
         for x in range(len(cfg_desc)):
             if cfg_desc[x] != "":
                 logger.info(cfg_desc[x] + ": " + str(cfg_array[x]))
@@ -1001,7 +1001,7 @@ def load_game_cfg(poke_edit_data):
         len(poke_edit_data.base_species_list),
         "(not including the Egg)",
     )
-    logger.debug(  # noqa: T201
+    logger.debug(
         "Number of Personal Entries: %d %s",
         len(poke_edit_data.master_formes_list) - 1,
         "(not including the Egg)",
