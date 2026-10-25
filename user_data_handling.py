@@ -850,6 +850,14 @@ def user_prompt_write_CSV(poke_edit_data: Pokedata, target, gamesassert=""):
 
     flags_offset = 4 * (1 + poke_edit_data.max_species_index)
 
+    while True:
+        print(poke_edit_data.model_header[flags_offset: flags_offset + 2])
+
+        if(poke_edit_data.model_header[flags_offset: flags_offset + 2] == [0xCC, 0xCC]):
+            flags_offset += 2
+        else:
+            break
+
     for row in poke_edit_data.master_list_csv:
         if row[4] != "" and row[4] != "NA":
             if int(row[4]) >= 0 and len(row) == 5:
