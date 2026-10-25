@@ -36,7 +36,7 @@ class Pokedata:
         self.master_formes_list = ["Bulbasaur"]
         self.model_source_list = ["Bulbasaur"]
 
-        self.master_list_csv = []
+        self.master_list_csv: list[list[str | int]] = []
 
         self.extracted_extension = ".bin"
 
@@ -1031,7 +1031,7 @@ xy_master_list_csv = [
     ["Egg", "", "NA", "", 980],
 ]
 
-oras_master_list_csv = [
+oras_master_list_csv: list[list[str | int]] = [
     ["Egg/Blank", "", 0, 0, "NA"],
     ["Bulbasaur", "", 1, 1, 0],
     ["Ivysaur", "", 2, 2, 1],
