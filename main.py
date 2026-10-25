@@ -299,20 +299,6 @@ cfg_save = Button(
 )
 cfg_save.grid(row=1, column=0, sticky="ew")
 
-
-# CSV file path Selection
-
-load_pokelist_csv_button = Button(
-    root,
-    text="(Re)Load CSV",
-    command=lambda: [
-        user_prompt_load_CSV(poke_edit_data, "Pokemon Names and Files"),
-        update_non_model_lists(poke_edit_data),
-        update_model_list_for_box(poke_edit_data),
-    ],
-)
-load_pokelist_csv_button.grid(row=0, column=6, sticky="ew")
-
 save_pokelist_csv_button = Button(
     root,
     text="Create/Save CSV",
