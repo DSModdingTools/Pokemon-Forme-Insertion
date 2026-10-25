@@ -29,6 +29,8 @@ class Pokedata:
 
         self.sorted = False
 
+        self.use_default_species_list = True
+
         # on startup, initialize to empty
         # when load, initialize to full and current to full
         # when search, search in current for speed

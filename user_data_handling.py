@@ -673,7 +673,10 @@ def load_names_from_CSV(poke_edit_data: Pokedata, just_wrote=False) -> Pokedata:
             elif species_check > 0:
                 logger.warning(
                     "The loaded CSV has more Pokemon base species than your game files. Something is very probably wrong. Please recheck your game files, the csv itself, and your settings. The Pokemon base species entries read from the CSV have NOT been loaded."
+                    f"The loaded CSV has more Pokemon base species than the default. {len(temp_base_species_list)} detected in the CSV."
                 )
+                poke_edit_data.base_species_list = temp_base_species_list.copy()
+                poke_edit_data.use_default_species_list = False
                 return poke_edit_data
             elif species_check == 0:
                 logger.warning("Loading Pokemon Species List from CSV")
@@ -989,6 +992,8 @@ def load_game_cfg(poke_edit_data):
     except:  # ruff: ignore[E722]
         logger.info("Missing lines from config")
 
+    poke_edit_data = load_names_from_CSV(poke_edit_data)
+
     poke_edit_data = load_GARC(
         poke_edit_data, poke_edit_data.personal_path, "Personal", poke_edit_data.game
     )
@@ -1001,7 +1006,6 @@ def load_game_cfg(poke_edit_data):
     poke_edit_data = load_GARC(
         poke_edit_data, poke_edit_data.model_path, "Model", poke_edit_data.game
     )
-    poke_edit_data = load_names_from_CSV(poke_edit_data)
 
     logger.debug("Sorted: %s, %s", poke_edit_data.sorted, "\n")
     logger.debug(
