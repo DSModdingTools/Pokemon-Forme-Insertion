@@ -402,7 +402,7 @@ def choose_GARC(poke_edit_data, target, gameassert):
 
 
 # called if the game files have more (inserted) formes than the CSV file.
-def rebuild_csv(poke_edit_data):
+def rebuild_csv(poke_edit_data: Pokedata) -> Pokedata:
 
     # we will rebuild the csv file in this. initialize with the first row, the empty Personal file
     temp_csv_file = [["Egg/Blank", "", 0, 0, "NA"]]
@@ -476,10 +476,7 @@ def rebuild_csv(poke_edit_data):
         # CSV has additions and deletions from game in both directions in either Model or Personal
         elif missing_personal_count < 0 or missing_model_count < 0:
             logger.warning(f"Problem detected at row {row_index}")
-            logger.warning(
-                "CSV has additons AND deletions compared to GARC. Please refresh the CSV and try again."
-            )
-            return
+            raise ValueError("CSV has additons AND deletions compared to GARC. Please refresh the CSV and try again.")
         # at least one of model and Personal have more entries.
         else:
             rows_to_add = max(missing_personal_count, missing_model_count)
@@ -531,7 +528,7 @@ def rebuild_csv(poke_edit_data):
 
 
 # loads the data from the filepath in the class data structure to the correct variables
-def load_names_from_CSV(poke_edit_data, just_wrote=False):
+def load_names_from_CSV(poke_edit_data: Pokedata, just_wrote=False):
 
     temp_base_species_list = []
     temp_master_formes_list = []
@@ -840,7 +837,7 @@ def write_CSV(poke_edit_data, csv_path=""):
     return poke_edit_data
 
 
-def user_prompt_write_CSV(poke_edit_data, target, gamesassert=""):
+def user_prompt_write_CSV(poke_edit_data: Pokedata, target, gamesassert=""):
 
     if gamesassert != "":
         poke_edit_data.game = gamesassert
