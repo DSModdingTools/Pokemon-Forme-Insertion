@@ -476,7 +476,9 @@ def rebuild_csv(poke_edit_data: Pokedata) -> Pokedata:
         # CSV has additions and deletions from game in both directions in either Model or Personal
         elif missing_personal_count < 0 or missing_model_count < 0:
             logger.warning(f"Problem detected at row {row_index}")
-            raise ValueError("CSV has additons AND deletions compared to GARC. Please refresh the CSV and try again.")
+            raise ValueError(
+                "CSV has additons AND deletions compared to GARC. Please refresh the CSV and try again."
+            )
         # at least one of model and Personal have more entries.
         else:
             rows_to_add = max(missing_personal_count, missing_model_count)
@@ -528,7 +530,7 @@ def rebuild_csv(poke_edit_data: Pokedata) -> Pokedata:
 
 
 # loads the data from the filepath in the class data structure to the correct variables
-def load_names_from_CSV(poke_edit_data: Pokedata, just_wrote=False):
+def load_names_from_CSV(poke_edit_data: Pokedata, just_wrote=False) -> Pokedata:
 
     temp_base_species_list = []
     temp_master_formes_list = []
@@ -730,7 +732,7 @@ def user_prompt_load_CSV(poke_edit_data, target):
     return poke_edit_data
 
 
-def write_CSV(poke_edit_data, csv_path=""):
+def write_CSV(poke_edit_data: Pokedata, csv_path="") -> Pokedata:
 
     # use saved config path if nothing set
     if csv_path == "":
@@ -789,7 +791,7 @@ def write_CSV(poke_edit_data, csv_path=""):
                             pokemon_instance[0],
                             pokemon_instance[1],
                         ]
-                        + ["" for x in range(model_file_count)]
+                        + ["" for _ in range(model_file_count)]
                         + ["", ""]
                     )
                 else:
@@ -850,7 +852,7 @@ def user_prompt_write_CSV(poke_edit_data: Pokedata, target, gamesassert=""):
 
     for row in poke_edit_data.master_list_csv:
         if row[4] != "" and row[4] != "NA":
-            if row[4] >= 0 and len(row) == 5:
+            if int(row[4]) >= 0 and len(row) == 5:
                 temp = [
                     poke_edit_data.model_header[flags_offset],
                     poke_edit_data.model_header[flags_offset + 1],

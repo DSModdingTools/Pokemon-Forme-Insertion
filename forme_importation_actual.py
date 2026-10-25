@@ -457,7 +457,7 @@ def add_new_forme_execute(
     save_and_refresh_GARCs(poke_edit_data)
 
     try:
-        poke_edit_data = write_CSV(poke_edit_data)  # ty: ignore[unsound-assignment]
+        poke_edit_data = write_CSV(poke_edit_data)
     except:  # ruff: ignore[E722]
         print("Please close your Pokemon Names and Files CSV if it is open")  # noqa: T201
         poke_edit_data.csv_pokemon_list_path = asksaveasfile(  # ty: ignore[invalid-assignment]
