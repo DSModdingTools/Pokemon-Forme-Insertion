@@ -14,6 +14,6 @@ def get_parsed_arguments() -> argparse.Namespace:
     parser.add_argument(
         "-v", "--verbose", help="increase output verbosity", action="store_true"
     )
-    parser.add_argument("--gui", action="store_true", default=True)
+    parser.add_argument("--gui", action=argparse.BooleanOptionalAction, default=True)
     args = parser.parse_args()
     return args
