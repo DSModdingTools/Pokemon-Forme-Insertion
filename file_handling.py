@@ -217,7 +217,7 @@ def update_species_list(
     if (
         overwrite_from_default
         or (len(poke_edit_data.master_list_csv) < 100)
-        or not (poke_edit_data.use_default_species_list)
+        or (poke_edit_data.use_default_species_list)
     ):
         print("Initializing default Species list")  # noqa: T201
         # set base species list based on which game we're dealing with
