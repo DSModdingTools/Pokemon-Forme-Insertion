@@ -241,7 +241,6 @@ def update_species_list(
         poke_edit_data.base_species_list = entire_of_column(
             poke_edit_data.master_list_csv, 0, False
         )
-
     # remove the model-only Egg from the end:
     poke_edit_data.base_species_list.pop()
 

@@ -606,6 +606,7 @@ def load_names_from_CSV(poke_edit_data: Pokedata, just_wrote=False) -> Pokedata:
                     and data_rows[0] == data_rows[1]
                 ):
                     temp_base_species_list.append(data_rows[3])
+
                 # if the forme-name slot is non-empty, will be used at least once following this, if it empty need to not have dangling seperator
                 if data_rows[4] != "":
                     temp_forme_name = data_rows[3] + " - " + data_rows[4]
@@ -671,10 +672,7 @@ def load_names_from_CSV(poke_edit_data: Pokedata, just_wrote=False) -> Pokedata:
                 )
                 return poke_edit_data
             elif species_check > 0:
-                logger.warning(
-                    "The loaded CSV has more Pokemon base species than your game files. Something is very probably wrong. Please recheck your game files, the csv itself, and your settings. The Pokemon base species entries read from the CSV have NOT been loaded."
-                    f"The loaded CSV has more Pokemon base species than the default. {len(temp_base_species_list)} detected in the CSV."
-                )
+                logger.warning(f"The loaded CSV has more Pokemon base species than the default. {len(temp_base_species_list)} detected in the CSV.")
                 poke_edit_data.base_species_list = temp_base_species_list.copy()
                 poke_edit_data.use_default_species_list = False
                 return poke_edit_data
@@ -717,6 +715,14 @@ def load_names_from_CSV(poke_edit_data: Pokedata, just_wrote=False) -> Pokedata:
     except Exception:
         logger.exception("poke_edit_data failure")
         return poke_edit_data
+
+
+    #if the species count has changed, update it
+    print(poke_edit_data.max_species_index, len(poke_edit_data.base_species_list))
+
+    if(poke_edit_data.max_species_index != len(poke_edit_data.base_species_list)):
+        print(f'Updating species count from {poke_edit_data.max_species_index} to {len(poke_edit_data.base_species_list)}')
+        poke_edit_data.max_species_index = len(poke_edit_data.base_species_list)
 
     poke_edit_data.master_list_csv = temp_loaded_csv.copy()
 
@@ -994,9 +1000,13 @@ def load_game_cfg(poke_edit_data):
 
     poke_edit_data = load_names_from_CSV(poke_edit_data)
 
+
+
     poke_edit_data = load_GARC(
         poke_edit_data, poke_edit_data.personal_path, "Personal", poke_edit_data.game
     )
+    for pokemon in poke_edit_data.base_species_list:
+        print(pokemon)
     poke_edit_data = load_GARC(
         poke_edit_data, poke_edit_data.levelup_path, "Levelup", poke_edit_data.game
     )
