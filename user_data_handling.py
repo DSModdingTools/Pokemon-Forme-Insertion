@@ -945,7 +945,7 @@ def load_game_cfg(poke_edit_data):
         "Levelup path",
         "Evolution path",
         "Pokemon Model/Texture path",
-        "",
+        "Using default species list",
         "Need to update Models",
         "",
         "",
@@ -966,11 +966,16 @@ def load_game_cfg(poke_edit_data):
         poke_edit_data.levelup_path = cfg_array[2]
         poke_edit_data.evolution_path = cfg_array[3]
         poke_edit_data.model_path = cfg_array[4]
-        # = cfg_array[5]
+
+        if cfg_array[5].lower() == "true":
+            poke_edit_data.use_default_species_list = True
+        else:
+            poke_edit_data.use_default_species_list = False
+
         # check to avoid issues loading old files, defaults to True due to class construction if neither passes
-        if cfg_array[6] == "True":
+        if cfg_array[6].lower() == "true":
             poke_edit_data.modelless_exists = True
-        elif cfg_array[6] == "False":
+        else :
             poke_edit_data.modelless_exists = False
 
         # evolution = cfg_array[7]
@@ -1005,8 +1010,6 @@ def load_game_cfg(poke_edit_data):
     poke_edit_data = load_GARC(
         poke_edit_data, poke_edit_data.personal_path, "Personal", poke_edit_data.game
     )
-    for pokemon in poke_edit_data.base_species_list:
-        print(pokemon)
     poke_edit_data = load_GARC(
         poke_edit_data, poke_edit_data.levelup_path, "Levelup", poke_edit_data.game
     )
@@ -1063,7 +1066,7 @@ def save_game_cfg(poke_edit_data, game_set=""):
             cfg.write(poke_edit_data.levelup_path + "\n")
             cfg.write(poke_edit_data.evolution_path + "\n")
             cfg.write(poke_edit_data.model_path + "\n")
-            cfg.write("\n")
+            cfg.write(poke_edit_data.use_default_species_list + "\n")
             cfg.write(temp_modelless + "\n")
             cfg.write("\n")  # evolution = cfg_array[7]
             cfg.write("\n")  # evolution = cfg_array[8]

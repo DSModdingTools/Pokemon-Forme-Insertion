@@ -214,6 +214,13 @@ def update_species_list(
     poke_edit_data: Pokedata, overwrite_from_default: bool = False
 ) -> Pokedata:
 
+
+
+
+
+
+
+
     if (
         overwrite_from_default
         or (len(poke_edit_data.master_list_csv) < 100)
@@ -284,7 +291,7 @@ def update_species_list(
                     if (forme_pointer + x) < len(poke_edit_data.master_formes_list):
                         break
                     poke_edit_data.master_formes_list.append("")
-                # print(index, forme_count, forme_pointer, x)
+
                 poke_edit_data.master_formes_list[forme_pointer + x] = (
                     poke_edit_data.base_species_list[index] + " " + str(x + 1)
                 )
