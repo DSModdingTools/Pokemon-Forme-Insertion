@@ -154,7 +154,7 @@ def update_csv_after_changes(
         except:  # ruff: ignore[E722, S110]
             pass
 
-    return poke_edit_data  # ty: ignore[unsound-return-statement]
+    return poke_edit_data  # ty: ignore[unsound-return]
 
 
 def update_model_list(poke_edit_data: Pokedata) -> Pokedata:
@@ -191,7 +191,7 @@ def update_model_list(poke_edit_data: Pokedata) -> Pokedata:
 
     # copy this into the current list to initialize properly (particularly when loading from cfg)
     poke_edit_data.model_source_list = model_temp_list.copy()
-    poke_edit_data.current_model_source_list = poke_edit_data.model_source_list.copy()  # ty: ignore[unresolved-attribute]
+    poke_edit_data.current_model_source_list = poke_edit_data.model_source_list.copy()  # ty: ignore[missing-attribute]
 
     return poke_edit_data
 
@@ -213,13 +213,6 @@ def update_model_list(poke_edit_data: Pokedata) -> Pokedata:
 def update_species_list(
     poke_edit_data: Pokedata, overwrite_from_default: bool = False
 ) -> Pokedata:
-
-
-
-
-
-
-
 
     if (
         overwrite_from_default

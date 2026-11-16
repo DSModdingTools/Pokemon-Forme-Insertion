@@ -134,7 +134,7 @@ def check_adding_without_models_works(
         # unset the "female cosmetic forme" flag if set
         if poke_edit_data.model_header[4 * (base_form_index - 1) + 3] in {3, 7}:
             poke_edit_data.model_header[4 * (base_form_index - 1) + 3] = 5
-        return poke_edit_data, True, update_forme_count  # ty: ignore[unsound-return-statement]
+        return poke_edit_data, True, update_forme_count  # ty: ignore[unsound-return]
     else:
         print(  # noqa: T201
             "There are "

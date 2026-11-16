@@ -7,7 +7,7 @@ def from_little_bytes_int(byte_input) -> int:
     temp = 0
     for x, byte in enumerate(byte_input):
         temp += byte << (x * 8)
-    return temp  # ty: ignore[unsound-return-statement]
+    return temp  # ty: ignore[unsound-return]
 
 
 # convert integer input into little-endian hex with given padding (default 0x4 bytes)
